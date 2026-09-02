@@ -936,7 +936,7 @@ $adminSidebarOwnProfileUrl =
                     <?php endif; ?>
                 </a>
 
-                <a href="<?= $adminSidebarH($adminSidebarBaseUrl . 'admin/meetings/edit_meetings.php') ?>"
+                <a href="<?= $adminSidebarH($adminSidebarBaseUrl . 'admin/meetings/edit.php') ?>"
                     class="submenu-item<?= $adminSidebarIsActive('meetings') ?>"
                     <?= $adminSidebarPage === 'meetings' ? 'aria-current="page"' : '' ?>
                     title="สร้าง แก้ไข เชิญสมาชิก และจัดทำรายงานประชุม">
