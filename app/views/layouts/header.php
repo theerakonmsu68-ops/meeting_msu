@@ -1,8 +1,8 @@
 <?php
 // 🌐 ดึงไฟล์ตั้งค่าหลักด้วยพาร์ทระบบราก (แก้ปัญหาลิงก์หลุดเมื่อถูก include ไปหน้าลึกๆ)
-require_once $_SERVER['DOCUMENT_ROOT'] . '/Meeting_msu/app/views/components/ai.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/Meeting_msu/app/config/config.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/Meeting_msu/app/middleware/AuthMiddleware.php';
+require_once __DIR__ . '/../components/ai.php';
+require_once __DIR__ . '/../../config/config.php';
+require_once __DIR__ . '/../../middleware/AuthMiddleware.php';
 $csrfToken = AuthMiddleware::csrfToken();
 
 ?>
@@ -17,7 +17,7 @@ $csrfToken = AuthMiddleware::csrfToken();
     <title><?= $page_title ?? 'ระบบงานประชุม'; ?> | <?= APP_NAME ?></title>
 
     <?php
-    $styleCssAssetPath = $_SERVER['DOCUMENT_ROOT'] . '/Meeting_msu/public/assets/css/style.css';
+    $styleCssAssetPath = __DIR__ . '../../../public/assets/css/style.css';
     $styleCssAssetVersion = is_file($styleCssAssetPath) ? '?v=' . filemtime($styleCssAssetPath) : '';
     ?>
     <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/style.css<?= $styleCssAssetVersion ?>">
@@ -52,7 +52,7 @@ $csrfToken = AuthMiddleware::csrfToken();
 
 </head>
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/Meeting_msu/app/views/components/profile_modal.php';
+require_once __DIR__ . '/../components/profile_modal.php';
 ?>
 
 <body>
