@@ -1,0 +1,298 @@
+/* =========================
+   RESET / ตั้งค่าพื้นฐานทั้งระบบ
+========================= */
+* {
+    margin: 0; /* ลบ margin default ของ browser */
+    padding: 0; /* ลบ padding default */
+    box-sizing: border-box; /* ทำให้ padding/border ไม่ดันขนาดกล่อง */
+}
+
+/* =========================
+   BODY / พื้นหลัง + ฟอนต์หลักของระบบ
+========================= */
+body {
+    background: #f2f2f2a5; /* สีพื้นหลังอ่อน ๆ */
+    opacity: 0; /* เริ่มต้นโปร่งใส */
+    animation: fadeIn .60s ease forwards; /* เอฟเฟกต์ fade-in ตอนโหลดหน้า */
+    font-family:'Sarabun', sans-serif; /* ฟอนต์หลักระบบ */
+    font-weight:400; /* น้ำหนักตัวหนังสือปกติ */
+}
+
+/* =========================
+   ANIMATION โหลดหน้า
+========================= */
+@keyframes fadeIn {
+    from {
+        opacity: 0; /* เริ่มจาง */
+    }
+
+    to {
+        opacity: 1; /* แสดงเต็ม */
+    }
+}
+
+/* =========================
+   CONTAINER หลักของหน้า Login (จัดกลางจอ)
+========================= */
+.login-wrapper {
+    min-height: 100vh; /* สูงเต็มจอ */
+    display: flex; /* ใช้ flex จัด layout */
+    justify-content: center; /* จัดกลางแนวนอน */
+    align-items: center; /* จัดกลางแนวตั้ง */
+    padding: 20px; /* เว้นขอบรอบ ๆ */
+}
+
+/* =========================
+   CARD / กล่องฟอร์ม login
+========================= */
+.login-card {
+    width: 100%; /* เต็มพื้นที่ container */
+    max-width: 420px; /* จำกัดความกว้าง */
+    background: #ffffff; /* พื้นหลังขาว */
+    border-radius: 18px; /* มุมโค้ง */
+    padding: 35px; /* ระยะห่างด้านใน */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, .06); /* เงาเบา ๆ */
+}
+
+/* =========================
+   LOGO / พื้นที่โลโก้
+========================= */
+.logo {
+    width: 70px;
+    height: 70px;
+    color: #333333;
+    border-radius: 18px;
+    margin: auto; /* จัดกลาง */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    font-weight: bold; /* ตัวหนา */
+    margin-bottom: 20px; /* ระยะห่างด้านล่าง */
+}
+
+/* =========================
+   หัวข้อหลัก (ระบบงานประชุม)
+========================= */
+h1 {
+    text-align: center;
+    color: #333333;
+    margin-bottom: 8px;
+}
+
+/* =========================
+   คำอธิบายใต้หัวข้อ
+========================= */
+.subtitle {
+    text-align: center;
+    color: #777;
+    margin-bottom: 25px;
+    font-size: 14px;
+}
+
+/* =========================
+   กลุ่มฟอร์ม (label + input)
+========================= */
+.form-group {
+    margin-bottom: 18px;
+}
+
+/* =========================
+   label ของ input
+========================= */
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-size: 14px;
+}
+
+/* =========================
+   input พื้นฐานทุกช่อง
+========================= */
+input {
+    width: 100%;
+    padding: 16px;
+    border: 0.5px solid #ddd;
+    border-radius: 12px;
+    transition: 0.3s ease;
+}
+
+/* =========================
+   input username (focus state)
+========================= */
+.inputu:focus {
+    outline: none;
+    border-color: #ffcc00; /* สีเหลืองตอน focus */
+    box-shadow: 0 0 0 2px rgba(255, 204, 0, .08); /* เงาเบา */
+}
+
+/* =========================
+   input password (focus state)
+========================= */
+.inputp:focus {
+    outline: none;
+    border-color: #0dff05; /* สีเขียวตอน focus */
+    box-shadow: 0 0 0 2px rgba(13, 255, 5, .08);
+}
+
+/* =========================
+   ลิงก์ "ลืมรหัสผ่าน"
+========================= */
+.forgot-box {
+    text-align: right;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* =========================
+   สไตล์ลิงก์
+========================= */
+.small-link {
+    font-size: 14px;
+    font-weight: 500;
+    color: #2a5df7c5;
+    text-decoration: none;
+    transition: .3s ease;
+}
+
+/* hover ลิงก์ */
+.small-link:hover {
+    color: #2a5df7;
+}
+
+/* =========================
+   ปุ่ม Login หลัก
+========================= */
+.buttonlogin {
+    width: 100%;
+    padding: 14px;
+    background: #ffcc00;
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+/* hover ปุ่ม login */
+.buttonlogin:hover {
+    background: #333333;
+    transform: translateY(-1px);
+}
+
+/* =========================
+   สถานะกำลังโหลด (ล็อกปุ่ม)
+========================= */
+.buttonlogin.loading {
+    background: #333333;
+    pointer-events: none; /* กดไม่ได้ */
+}
+
+/* =========================
+   spinner วงกลมโหลด
+========================= */
+.spinner {
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(255, 255, 255, .25);
+    border-top: 2px solid #ffffff;
+    border-radius: 50%;
+    display: none;
+    animation: spin .7s linear infinite;
+}
+
+/* แสดง spinner ตอน loading */
+button.loading .spinner {
+    display: block;
+}
+
+/* =========================
+   เส้นคั่น (divider)
+========================= */
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 18px 0;
+    color: #999;
+    font-size: 14px;
+}
+
+/* เส้นซ้ายขวา */
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+/* ข้อความ "หรือ" */
+.divider span {
+    padding: 0 12px;
+}
+
+/* =========================
+   Google login wrapper
+========================= */
+.google-wrap {
+    width: 100%;
+    margin-top: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 12px;
+}
+
+/* =========================
+   animation spinner หมุน
+========================= */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* =========================
+   responsive มือถือ
+========================= */
+@media(max-width:480px) {
+    .login-card {
+        padding: 25px;
+    }
+}
+
+/* =========================
+   FONT FACE (Sarabun)
+   น้ำหนัก 300 = Light
+========================= */
+@font-face {
+    font-family: 'Sarabun';
+    src: url('../fonts/Sarabun-Light.ttf') format('truetype');
+    font-weight: 300;
+}
+
+/* น้ำหนัก 700 = Bold */
+@font-face {
+    font-family: 'Sarabun';
+    src: url('../fonts/Sarabun-Bold.ttf') format('truetype');
+    font-weight: 700;
+}
+
+/* Dashboard Start */
+
+/* Keep SweetAlert2 above the application's detail modal. */
+.swal2-container {
+    z-index: 10000 !important;
+}

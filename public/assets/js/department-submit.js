@@ -1,0 +1,7 @@
+
+document.getElementById('toggle-sidebar')?.addEventListener('click', () => {
+    const s = document.querySelector('.sidebar') || document.querySelector('.sidebar-wrapper'), m = document.getElementById('mainContent');
+    if (!s) return; s.classList.toggle('collapsed');
+    if (!matchMedia('(max-width:768px)').matches) m?.classList.toggle('expanded', s.classList.contains('collapsed')); else m?.classList.remove('expanded');
+});
+if (window.lucide) lucide.createIcons();

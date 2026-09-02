@@ -1,0 +1,1305 @@
+/* ==========================================================================
+   🌐 [โครงสร้างหลักของหน้าตาราง - FLAT DESIGN NO SHADOWS]
+   ========================================================================== */
+.main-content {
+    margin-left: 268px;
+    width: calc(100% - 268px);
+    min-width: 0;
+    min-height: 100vh;
+    box-sizing: border-box;
+    background: #f8fafc;
+    transition: margin-left .26s ease, width .26s ease;
+}
+
+.main-content.expanded {
+    margin-left: 74px;
+    width: calc(100% - 74px);
+}
+
+.content-wrapper {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* ถอด shadow ออกจากตัวการ์ดตาราง ใช้เส้นขอบแบ่งเลเยอร์แทน */
+.table-card {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    background-color: #fff;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #e2e8f0;
+    box-shadow: none !important;
+    -webkit-overflow-scrolling: touch;
+}
+
+.table-card table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 1000px;
+}
+
+.table-card th,
+.table-card td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid #f1f5f9;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
+.table-card td:nth-child(4) {
+    white-space: normal;
+    min-width: 180px;
+}
+
+.table-card::-webkit-scrollbar {
+    height: 6px;
+}
+
+.table-card::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 8px;
+}
+
+.table-card::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 8px;
+}
+
+/* --- Badges & Buttons บนตาราง --- */
+.status-badge {
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.status-active {
+    background-color: #f0fdf4;
+    color: #16a34a;
+    border: 1px solid #bbf7d0;
+}
+
+.status-pending {
+    background-color: #fffbeb;
+    color: #d97706;
+    border: 1px solid #fef3c7;
+}
+
+.status-inactive {
+    background-color: #f1f5f9;
+    color: #64748b;
+    border: 1px solid #cbd5e1;
+}
+
+/* ==========================================================================
+   🎨 [ROLE BADGES - แยกสีตามสิทธิ์การใช้งานแบบ FLAT COLOR]
+   ========================================================================== */
+.role-badge {
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-block;
+    border: 1px solid transparent;
+}
+
+/* 1: ผู้ดูแลระบบ (Admin) - โทนสีม่วง */
+.role-admin {
+    background-color: #f5f3ff;
+    color: #6d28d9;
+    border-color: #ddd6fe;
+}
+
+/* 2: ผู้ใช้งานทั่วไป - โทนสีฟ้า */
+.role-member {
+    background-color: #f0f9ff;
+    color: #0369a1;
+    border-color: #bae6fd;
+}
+
+/* 3: ผู้บริหาร - โทนสีเหลืองทองเข้ม */
+.role-executive {
+    background-color: #fefce8;
+    color: #a16207;
+    border-color: #fef08a;
+}
+
+/* 4: ภาควิชา - โทนสีเขียวมิ้นต์ */
+.role-department {
+    background-color: #f0fdfa;
+    color: #0f766e;
+    border-color: #ccfbf1;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 6px;
+}
+
+.btn-edit {
+    background-color: #f1f5f9;
+    color: #334155;
+    border: 1px solid #cbd5e1;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn-delete {
+    background-color: #fef2f2;
+    color: #ef4444;
+    border: 1px solid #fee2e2;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn-add {
+
+    height: 40px;
+
+    min-width: 140px;
+
+    padding: 8px 18px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 7px;
+
+
+    background: #2563eb;
+
+    color: #ffffff;
+
+
+    border: 1px solid #1d4ed8;
+
+    border-radius: 8px;
+
+
+    font-size: 18px;
+
+    font-weight: 700;
+
+    font-family: "TH Sarabun New", "Sarabun", sans-serif;
+
+
+    cursor: pointer;
+
+    transition: .2s ease;
+
+}
+
+
+/* Icon */
+
+.btn-add svg {
+
+    width: 20px;
+
+    height: 20px;
+
+    stroke-width: 2.5;
+
+}
+
+
+/* Hover */
+
+.btn-add:hover {
+
+    background: #1d4ed8;
+
+}
+
+
+/* Click */
+
+.btn-add:active {
+
+    transform: scale(.96);
+
+}
+
+
+
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+
+/* ปุ่ม */
+.action-buttons button {
+
+    width: 80px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 18px;
+
+    font-family: "TH Sarabun New", "Sarabun", sans-serif;
+
+    font-weight: 700;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    transition: .2s ease;
+
+}
+
+
+/* แก้ไข */
+.btn-edit {
+
+    background-color: #2563eb !important;
+
+    color: #ffffff !important;
+
+    border: 1px solid #1d4ed8 !important;
+
+}
+
+
+/* ลบ */
+.btn-delete {
+
+    background-color: #dc2626 !important;
+
+    color: #ffffff !important;
+
+    border: 1px solid #b91c1c !important;
+
+}
+
+
+/* Hover */
+.btn-edit:hover {
+    background-color: #1d4ed8 !important;
+}
+
+.btn-delete:hover {
+    background-color: #b91c1c !important;
+}
+
+
+/* กดปุ่ม */
+.action-buttons button:active {
+    transform: scale(.96);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid #e2e8f0;
+    background: white;
+}
+
+#searchInput {
+    padding: 9px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 14px;
+    width: 240px;
+}
+
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    margin-top: 24px;
+}
+
+.pagination-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 36px;
+    height: 36px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    background-color: #ffffff;
+    color: #475569;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.pagination-link.active {
+    background-color: #2563eb;
+    border-color: #2563eb;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.toggle-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #64748b;
+}
+
+/* ==========================================================================
+   ✨ [MODAL FLAT DESIGN - ถอดแสงเงาออกหมดจด 100%]
+   ========================================================================== */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(15, 23, 42, 0.4);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.25s ease;
+    z-index: 1000;
+}
+
+.modal.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* ลบเงารอบกล่อง Modal ออกทั้งหมด ใช้ border สีเข้มขึ้นนิดหน่อยช่วยตัดขอบ */
+.modal-box {
+    background-color: #ffffff;
+    width: 92%;
+    max-width: 480px;
+    max-height: 85vh;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    transform: scale(0.98);
+    transition: all 0.25s ease;
+    overflow: hidden;
+    border: 1px solid #cbd5e1;
+    box-shadow: none !important;
+}
+
+.modal.show .modal-box {
+    transform: scale(1);
+}
+
+.modal-box h3 {
+    padding: 18px 24px;
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: #0f172a;
+    border-bottom: 1px solid #e2e8f0;
+    letter-spacing: -0.025em;
+}
+
+.modal-form-body {
+    padding: 24px;
+    overflow-y: auto;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.modal-actions {
+    padding: 16px 24px;
+    background-color: #f8fafc;
+    border-top: 1px solid #e2e8f0;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+/* ฟอร์มกรอกข้อมูล */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #334155;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group select {
+    padding: 10px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #0f172a;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #fff;
+    transition: border-color 0.15s ease;
+    box-shadow: none !important;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #2563eb;
+}
+
+/* ==========================================================================
+   ✨ ปรับแต่งปุ่มควบคุมให้ Flat และ Hover ได้นุ่มนวล สมูทขึ้น (Smooth Transition)
+   ========================================================================== */
+.modal-actions button {
+    padding: 10px 18px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: none;
+    box-shadow: none !important;
+
+    /* ⚡️ หัวใจสำคัญ: เพิ่มเวลาและปรับ curve การเคลื่อนไหวให้สมูทนุ่มนวล */
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --- ปุ่มบันทึกข้อมูล --- */
+.modal-actions button.btn-save {
+    background-color: #2563eb;
+    color: #ffffff;
+}
+
+/* เมื่อเมาส์ชี้: ค่อยๆ หม่นสีลงนิดนึงแบบนุ่มๆ ไม่กระตุกตา */
+.modal-actions button.btn-save:hover {
+    background-color: #1d4ed8;
+}
+
+/* --- ปุ่มยกเลิก --- */
+.modal-actions button.btn-cancel {
+    background-color: #ffffff;
+    color: #475569;
+    border: 1px solid #cbd5e1;
+}
+
+/* เมื่อเมาส์ชี้: เปลี่ยนเป็นสีเทาอ่อนจางๆ พร้อมเปลี่ยนสีตัวอักษรให้เข้มขึ้นอย่างนุ่มนวล */
+.modal-actions button.btn-cancel:hover {
+    background-color: #f1f5f9;
+    color: #0f172a;
+    border-color: #94a3b8;
+    /* ปรับเส้นขอบให้ชัดขึ้นเล็กน้อยตอน hover */
+}
+
+/* 📸 กล่องอัปโหลดรูปภาพแนว Flat - ไร้แสงเงา */
+.avatar-upload-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #f8fafc;
+    border: 2px dashed #cbd5e1;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+    margin-bottom: 8px;
+    box-shadow: none !important;
+}
+
+.avatar-upload-wrapper:hover,
+.avatar-upload-wrapper.dragover {
+    border-color: #2563eb;
+    background-color: #f0f6ff;
+}
+
+.avatar-preview-container {
+    position: relative;
+    width: 84px;
+    height: 84px;
+    margin-bottom: 10px;
+}
+
+.avatar-preview-container img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #cbd5e1;
+    box-shadow: none !important;
+}
+
+.avatar-icon-placeholder {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: #e2e8f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #64748b;
+    margin-bottom: 10px;
+    transition: all 0.2s ease;
+}
+
+.avatar-upload-wrapper:hover .avatar-icon-placeholder {
+    background: #dbeafe;
+    color: #2563eb;
+}
+
+.upload-text {
+    font-size: 13px;
+    color: #64748b;
+    font-weight: 500;
+}
+
+.upload-text span {
+    color: #2563eb;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+    .header {
+        gap: 12px;
+        flex-wrap: wrap;
+    }
+
+    .header-right {
+        width: 100%;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 8px;
+    }
+
+    #searchInput {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .main-content,
+    .main-content.expanded {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .content-wrapper,
+    .header {
+        padding: 14px;
+    }
+
+    .header-right {
+        grid-template-columns: 1fr;
+    }
+
+    .btn-add {
+        width: 100%;
+    }
+
+    .pagination-container {
+        flex-wrap: wrap;
+    }
+
+    .pagination-link {
+        min-width: 34px;
+        height: 34px;
+    }
+}
+
+/* ===============================
+   RESPONSIVE ADMIN USER PAGE
+   =============================== */
+
+/* Laptop */
+@media (max-width: 1200px) {
+
+    .content-wrapper {
+        padding: 18px;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+    }
+
+    .card {
+        padding: 16px;
+    }
+
+    .card-value {
+        font-size: 24px;
+    }
+
+}
+
+
+/* Tablet */
+@media (max-width: 992px) {
+
+    .main-content,
+    .main-content.expanded {
+        width: 100%;
+    }
+
+    .header {
+        padding: 14px 18px;
+    }
+
+    .header h2 {
+        font-size: 1.05rem;
+    }
+
+    .content-wrapper {
+        padding: 14px;
+    }
+
+    .user-table-wrapper,
+    .table-responsive {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    table {
+        min-width: 850px;
+    }
+
+    .search-box {
+        width: 100%;
+    }
+
+}
+
+
+/* Mobile */
+@media (max-width: 768px) {
+
+    .main-content,
+    .main-content.expanded {
+        margin-left: 0 !important;
+        width: 100% !important;
+    }
+
+    .header {
+        height: auto;
+        min-height: 60px;
+        padding: 12px 14px;
+        gap: 10px;
+    }
+
+    .header-left {
+        gap: 10px;
+    }
+
+    .header-left h2 {
+        font-size: 16px;
+    }
+
+    .toggle-btn {
+        width: 42px;
+        height: 42px;
+    }
+
+    .header-right {
+        margin-left: auto;
+    }
+
+    .content-wrapper {
+        padding: 12px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .card {
+        padding: 16px;
+        border-radius: 14px;
+    }
+
+    .card-value {
+        font-size: 26px;
+    }
+
+    .toolbar,
+    .action-bar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .toolbar button,
+    .btn-add {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .table-card {
+        border-radius: 10px;
+    }
+
+    .pagination-container {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 6px;
+    }
+
+    .pagination-link {
+        min-width: 38px;
+        height: 38px;
+    }
+
+}
+
+
+/* Small Mobile */
+@media (max-width: 480px) {
+
+    .header-left h2 {
+        display: none;
+    }
+
+    .content-wrapper {
+        padding: 10px;
+    }
+
+    .card-title {
+        font-size: 13px;
+    }
+
+    .card-value {
+        font-size: 22px;
+    }
+
+    .modal-content {
+        width: calc(100% - 24px) !important;
+        margin: 12px;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+
+    input,
+    select,
+    textarea,
+    button {
+        min-height: 42px;
+    }
+
+}
+
+/* ==========================================================================
+   👴 SENIOR FRIENDLY MODAL ONLY
+   USER MANAGEMENT
+========================================================================== */
+
+
+/* ===============================
+   Modal Box
+================================ */
+
+
+.modal-box {
+
+    max-width: 600px;
+
+    max-height: 90vh;
+
+    border-radius: 16px;
+
+}
+
+
+
+/* ===============================
+   Modal Header
+================================ */
+
+
+.modal-box h3 {
+
+    padding: 22px 28px;
+
+    font-size: 22px;
+
+    font-weight: 700;
+
+    color: #0f172a;
+
+}
+
+
+
+/* ===============================
+   Modal Body
+================================ */
+
+
+.modal-form-body {
+
+    padding: 28px;
+
+    gap: 18px;
+
+}
+
+
+
+/* ===============================
+   Form Label
+================================ */
+
+
+.form-group label {
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    color: #334155;
+
+    margin-bottom: 8px;
+
+}
+
+
+
+/* ===============================
+   Input / Select
+================================ */
+
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group select {
+
+
+    min-height: 50px;
+
+
+    padding: 12px 16px;
+
+
+    font-size: 16px;
+
+
+    border-radius: 10px;
+
+
+}
+
+
+
+/* Focus */
+
+.form-group input:focus,
+.form-group select:focus {
+
+
+    border-color: #2563eb;
+
+    outline: none;
+
+
+}
+
+
+
+/* ===============================
+   Avatar Upload
+================================ */
+
+
+.avatar-upload-wrapper {
+
+
+    padding: 24px;
+
+
+    border-radius: 14px;
+
+
+}
+
+
+
+.upload-text {
+
+
+    font-size: 14px;
+
+
+}
+
+
+
+/* ===============================
+   Modal Footer
+================================ */
+
+
+.modal-actions {
+
+
+    padding: 18px 28px;
+
+
+}
+
+
+
+.modal-actions button {
+
+
+    min-height: 48px;
+
+
+    padding: 0 24px;
+
+
+    font-size: 16px;
+
+
+    font-weight: 700;
+
+
+    border-radius: 10px;
+
+
+}
+
+
+
+/* ===============================
+   Mobile
+================================ */
+
+
+@media(max-width:768px) {
+
+
+    .modal-box {
+
+
+        width: 95%;
+
+    }
+
+
+    .modal-form-body {
+
+
+        padding: 20px;
+
+
+    }
+
+
+    .modal-actions button {
+
+
+        min-height: 46px;
+
+        font-size: 16px;
+
+    }
+
+
+}
+
+
+/* <!-- ➕ CSS สำหรับ Filter UI (ยึดตามดีไซน์เดิมที่คุณถูกใจ) --> */
+
+.filter-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+    border: 1px solid #f1f5f9;
+}
+
+.filter-card h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #1e293b;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.filter-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: flex-end;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+    min-width: 180px;
+}
+
+.form-group.search-group {
+    flex: 2;
+    min-width: 250px;
+}
+
+.form-group label {
+    font-size: 14px;
+    color: #64748b;
+    font-weight: 500;
+}
+
+.form-control {
+    padding: 12px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #334155;
+    background-color: #f8fafc;
+    transition: all 0.2s ease;
+    font-family: inherit;
+}
+
+.form-control::placeholder {
+    font-size: 15px;
+    color: #94a3b8;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #3b82f6;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.filter-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.btn-search {
+    padding: 12px 20px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-search:hover {
+    background: #1d4ed8;
+}
+
+.btn-clear {
+    padding: 12px 20px;
+    background: #ffffff;
+    color: #475569;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-clear:hover {
+    background: #f1f5f9;
+    color: #1e293b;
+}
+
+
+
+
+/* =====================================
+   Filter Select - Senior Friendly Style
+===================================== */
+
+
+.filter-card .form-group select.form-control {
+
+
+    height: 48px;
+
+
+    padding: 0 42px 0 16px;
+
+
+    border: 1px solid #cbd5e1;
+
+
+    border-radius: 10px;
+
+
+    background-color: #fff;
+
+
+    color: #334155;
+
+
+    font-size: 16px;
+
+
+    font-weight: 600;
+
+
+    cursor: pointer;
+
+
+    appearance: none;
+
+
+    background-image:
+
+
+        linear-gradient(45deg, transparent 50%, #64748b 50%),
+
+
+        linear-gradient(135deg, #64748b 50%, transparent 50%);
+
+
+    background-position:
+
+
+        calc(100% - 18px) 20px,
+
+
+        calc(100% - 12px) 20px;
+
+
+    background-size:
+
+        6px 6px,
+
+        6px 6px;
+
+
+    background-repeat: no-repeat;
+
+
+}
+
+
+
+/* Hover */
+
+.filter-card .form-group select.form-control:hover {
+
+
+    border-color: #93c5fd;
+
+
+}
+
+
+
+/* Focus */
+
+.filter-card .form-group select.form-control:focus {
+
+
+    outline: none;
+
+
+    border-color: #2563eb;
+
+
+    box-shadow:
+
+        0 0 0 3px rgba(37, 99, 235, .12);
+
+
+}
+
+
+
+/* Label ของ Filter */
+
+.filter-card .form-group label {
+
+
+    font-size: 14px;
+
+
+    font-weight: 700;
+
+
+    color: #475569;
+
+
+    margin-bottom: 8px;
+
+
+}
+
+
+
+/* ช่องค้นหาและ Select ให้เท่ากัน */
+
+.filter-card .form-control {
+
+
+    min-height: 48px;
+
+
+    box-sizing: border-box;
+
+
+}
+
+
+
+/* Option */
+
+.filter-card select option {
+
+
+    font-size: 16px;
+
+
+    padding: 10px;
+
+
+}

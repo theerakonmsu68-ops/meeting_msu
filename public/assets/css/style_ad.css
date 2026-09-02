@@ -1,0 +1,597 @@
+:root {
+    --primary: #4f46e5;
+    --primary-hover: #4338ca;
+    --bg-body: #f1f5f9;
+    --bg-sidebar: #ffffff;
+    --white: #ffffff;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --border-color: #e2e8f0;
+    --success: #22c55e;
+    --warning: #f59e0b;
+    --sidebar-width: 260px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    display: flex;
+    min-height: 100vh;
+}
+
+/* --- Sidebar Style --- */
+.sidebar {
+    width: var(--sidebar-width);
+    background-color: var(--bg-sidebar);
+    color: rgb(56, 56, 56);
+    height: 100vh;
+    position: fixed;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, .06);
+}
+
+.sidebar.closed {
+    transform: translateX(-100%);
+}
+
+.sidebar-header {
+    padding: 20px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid #1e293b;
+}
+
+.sidebar-menu {
+    padding: 20px 0;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 20px;
+    color: #94a3b8;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.menu-item:hover,
+.menu-item.active {
+    background-color: var(--primary);
+    color: white;
+}
+
+/* --- Main Content Style --- */
+.main-content {
+    flex: 1;
+    margin-left: var(--sidebar-width);
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.main-content.expanded {
+    margin-left: 0;
+}
+
+.header {
+    background-color: var(--white);
+    height: 70px;
+    padding: 0 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 900;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.toggle-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-main);
+}
+
+.avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+/* --- Dashboard Content --- */
+.content-wrapper {
+    padding: 25px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.card {
+    background: var(--white);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.card-value {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+/* --- Table Style --- */
+.table-card {
+    background: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px;
+}
+
+th {
+    text-align: left;
+    background: #f8fafc;
+    padding: 15px 20px;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+td {
+    padding: 15px 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.status-badge {
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.status-success {
+    background: #dcfce7;
+    color: #166534;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+    }
+
+    .sidebar.active {
+        transform: translateX(0);
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+}
+
+.avatar-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ddd;
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #2563eb;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+}
+
+/* =========================================================
+🔵 BASE BUTTON SECTION
+========================================================= */
+
+/* ===============================
+ACTION BUTTON WRAPPER
+👉 กล่องรวมปุ่ม (แก้ไข / ลบ)
+=============================== */
+.action-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+/* ===============================
+BASE BUTTON STYLE
+👉 ปุ่มพื้นฐานในตาราง
+=============================== */
+.action-buttons button {
+    padding: 6px 10px;
+    border-radius: 8px;
+
+    font-size: 13px;
+    font-weight: 500;
+
+    border: none;
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* ===============================
+EDIT BUTTON
+=============================== */
+.btn-edit {
+    background: #e0e7ff;
+    color: #4338ca;
+}
+
+.btn-edit:hover {
+    background: #c7d2fe;
+    transform: translateY(-1px);
+}
+
+/* ===============================
+DELETE BUTTON
+=============================== */
+.btn-delete {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+.btn-delete:hover {
+    background: #fecaca;
+    transform: translateY(-1px);
+}
+
+/* ===============================
+CLICK EFFECT
+=============================== */
+.action-buttons button:active {
+    transform: scale(0.97);
+}
+
+
+/* =========================================================
+🧭 HEADER LAYOUT
+========================================================= */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 14px 25px;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+/* ===============================
+SEARCH INPUT
+=============================== */
+#searchInput {
+    padding: 10px 14px;
+    border-radius: 12px;
+
+    border: 1px solid #e2e8f0;
+    background: #f8fafc;
+
+    width: 240px;
+
+    font-size: 14px;
+
+    transition: 0.2s;
+
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+}
+
+#searchInput:focus {
+    outline: none;
+
+    background: #fff;
+    border-color: #4f46e5;
+
+    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.12);
+}
+
+
+/* ===============================
+ADD BUTTON
+=============================== */
+.btn-add {
+    padding: 10px 14px;
+    border-radius: 12px;
+
+    border: none;
+    cursor: pointer;
+
+    background: #4f46e5;
+    color: #fff;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    transition: 0.2s;
+
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);
+}
+
+.btn-add:hover {
+    background: #4338ca;
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+📊 TABLE
+========================================================= */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+}
+
+th {
+    text-align: left;
+    padding: 14px;
+
+    background: #f8fafc;
+
+    font-size: 13px;
+    color: #64748b;
+}
+
+td {
+    padding: 14px;
+    border-bottom: 1px solid #e2e8f0;
+
+    font-size: 14px;
+}
+
+tbody tr:hover {
+    background: #f1f5f9;
+}
+
+
+/* =========================================================
+🪟 MODAL
+========================================================= */
+
+.modal {
+    display: none;
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(4px);
+
+    z-index: 9999;
+}
+
+.modal.show {
+    display: block;
+}
+
+.modal-box {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%) scale(0.95);
+
+    background: #fff;
+    width: 420px;
+    max-width: 92%;
+
+    padding: 22px;
+    border-radius: 14px;
+
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+
+    animation: pop 0.18s ease forwards;
+}
+
+@keyframes pop {
+    to {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+}
+
+
+/* =========================================================
+🧾 INPUT FORM (รวม Role + Status)
+========================================================= */
+
+.modal-box input,
+.modal-box select {
+    width: 100%;
+
+    padding: 10px 12px;
+
+    margin-top: 6px;
+    margin-bottom: 12px;
+
+    border-radius: 12px;
+
+    border: 1px solid #e2e8f0;
+
+    font-size: 14px;
+
+    background: #f8fafc;
+
+    transition: 0.2s;
+
+    appearance: none; /* ❗ เอา default select UI ออก */
+}
+
+/* focus input/select */
+.modal-box input:focus,
+.modal-box select:focus {
+    outline: none;
+
+    background: #fff;
+
+    border-color: #4f46e5;
+
+    box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.12);
+}
+
+
+/* ===============================
+✨ ROLE / STATUS (พิเศษ)
+👉 ทำ select ให้ดู premium ขึ้น
+=============================== */
+
+.modal-box select {
+    cursor: pointer;
+
+    /* custom arrow */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+}
+
+/* hover select */
+.modal-box select:hover {
+    border-color: #c7d2fe;
+}
+
+
+/* =========================================================
+🪟 MODAL ACTIONS
+========================================================= */
+
+.modal-actions {
+    display: flex;
+    gap: 10px;
+
+    margin-top: 18px;
+}
+
+.modal-actions button {
+    flex: 1;
+
+    padding: 12px 14px;
+    min-height: 44px;
+
+    border: none;
+    border-radius: 12px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.18s ease;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+}
+
+/* Save (primary) */
+.modal-actions button:first-child {
+    background: var(--primary);
+    color: var(--white);
+
+    box-shadow: 0 6px 18px rgba(79,70,229,0.18);
+}
+
+.modal-actions button:first-child:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+}
+
+.modal-actions button:first-child:focus-visible {
+    outline: 3px solid rgba(79,70,229,0.12);
+    outline-offset: 2px;
+}
+
+/* Close (secondary) */
+.modal-actions button:last-child {
+    background: #f1f5f9;
+    color: #334155;
+    border: 1px solid #e6eef8;
+}
+
+.modal-actions button:last-child:hover {
+    background: #e6eef8;
+    transform: translateY(-2px);
+}
+
+.modal-actions button:active {
+    transform: scale(0.98);
+}
+
+/* Responsive: stack buttons on narrow screens */
+@media (max-width: 480px) {
+    .modal-actions {
+        flex-direction: column;
+    }
+
+    .modal-actions button {
+        width: 100%;
+    }
+}

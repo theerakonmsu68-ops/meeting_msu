@@ -1,0 +1,357 @@
+:root {
+    --p: #0284c7;
+    --bg: #f8fafc;
+    --bd: #e2e8f0;
+    --tx: #1e293b;
+    --mut: #64748b;
+}
+
+.main-content {
+    margin-left: 260px;
+    width: calc(100% - 260px);
+    min-height: 100vh;
+    background: var(--bg);
+    transition: all .3s ease;
+}
+
+.main-content.expanded {
+    margin-left: 70px;
+    width: calc(100% - 70px);
+}
+
+.head {
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #fff;
+    border-bottom: 1px solid var(--bd);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+}
+
+.toggle {
+    border: 0;
+    background: none;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 6px;
+    transition: background-color 0.2s;
+}
+
+
+
+.body {
+    padding: 24px;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(160px, 1fr));
+    gap: 12px;
+    margin-bottom: 17px;
+}
+
+.stat {
+    padding: 16px;
+    background: #fff;
+    border: 1px solid var(--bd);
+    border-radius: 12px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04);
+}
+
+.stat strong {
+    display: block;
+    font-size: 22px;
+    color: var(--tx);
+    font-weight: 700;
+}
+
+.stat span {
+    font-size: 11px;
+    color: var(--mut);
+    font-weight: 500;
+}
+
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+.search-form {
+    display: flex;
+    gap: 7px;
+    flex: 1;
+    min-width: 280px;
+}
+
+.search {
+    padding: 9px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 9px;
+    min-width: 0;
+    flex: 1;
+    font: inherit;
+    font-size: 12px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.search:focus {
+    border-color: var(--p);
+    box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+}
+
+.tabs {
+    display: flex;
+    gap: 7px;
+    flex-wrap: wrap;
+}
+
+.tab {
+    padding: 7px 12px;
+    border: 1px solid var(--bd);
+    border-radius: 999px;
+    background: #fff;
+    color: #64748b;
+    font-size: 11px;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.tab:hover {
+    border-color: #cbd5e1;
+    color: var(--tx);
+}
+
+.tab.active {
+    background: var(--p);
+    color: #fff;
+    border-color: var(--p);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 14px;
+}
+
+.doc {
+    padding: 18px;
+    background: #fff;
+    border: 1px solid var(--bd);
+    border-radius: 14px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.doc:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.icon {
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    border-radius: 11px;
+    background: #f0f9ff;
+    color: var(--p);
+}
+
+.doc h3 {
+    margin: 11px 0 5px;
+    color: var(--tx);
+    font-size: 13.5px;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+.doc p {
+    margin: 3px 0;
+    color: #64748b;
+    font-size: 11px;
+    line-height: 1.45;
+}
+
+.chip {
+    display: inline-flex;
+    margin-top: 7px;
+    padding: 3px 8px;
+    border-radius: 999px;
+    background: #f1f5f9;
+    color: #475569;
+    font-size: 10px;
+    font-weight: 500;
+}
+
+.download {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 11px;
+    padding: 8px 12px;
+    border-radius: 9px;
+    background: var(--p);
+    color: #fff;
+    text-decoration: none;
+    font-size: 11.5px;
+    font-weight: 600;
+    transition: background-color 0.2s;
+}
+
+.download:hover {
+    background: #0369a1;
+}
+
+.empty {
+    padding: 35px;
+    text-align: center;
+    color: #94a3b8;
+    background: #fff;
+    border: 1px solid var(--bd);
+    border-radius: 14px;
+}
+
+.pager {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-top: 18px;
+    flex-wrap: wrap;
+}
+
+.pager-info {
+    font-size: 11.5px;
+    color: #64748b;
+}
+
+.pagination {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.page-link {
+    min-width: 34px;
+    height: 34px;
+    padding: 0 9px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--bd);
+    border-radius: 8px;
+    background: #fff;
+    color: #475569;
+    text-decoration: none;
+    font-size: 11.5px;
+    transition: all 0.2s;
+}
+
+.page-link:hover {
+    border-color: #cbd5e1;
+    color: var(--tx);
+}
+
+.page-link.active {
+    background: var(--p);
+    color: #fff;
+    border-color: var(--p);
+}
+
+.per-page {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11.5px;
+    color: #64748b;
+}
+
+.per-page select {
+    padding: 7px 9px;
+    border: 1px solid var(--bd);
+    border-radius: 8px;
+    background: #fff;
+    color: #475569;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.per-page select:focus {
+    border-color: var(--p);
+}
+
+.search-btn {
+    padding: 9px 13px;
+    border: 1px solid var(--p);
+    border-radius: 9px;
+    background: var(--p);
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.search-btn:hover {
+    background: #0369a1;
+    border-color: #0369a1;
+}
+
+@media(max-width:900px) {
+    .stats {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media(max-width:768px) {
+    .main-content,
+    .main-content.expanded {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .body {
+        padding: 14px;
+    }
+
+    .head {
+        padding: 14px;
+        align-items: flex-start;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    .search-form {
+        min-width: 100%;
+        width: 100%;
+    }
+
+    .tabs {
+        width: 100%;
+    }
+
+    .tab {
+        flex: 1;
+        text-align: center;
+    }
+
+    .pagination {
+        width: 100%;
+    }
+
+    .page-link {
+        flex: 1;
+        min-width: 42px;
+    }
+
+    .per-page {
+        width: 100%;
+        justify-content: space-between;
+    }
+}

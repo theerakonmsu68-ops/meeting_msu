@@ -1,0 +1,284 @@
+:root {
+    --dp: #0284c7;
+    --dpd: #0369a1;
+    --bg: #f8fafc;
+    --bd: #e2e8f0;
+    --tx: #1e293b;
+    --mut: #64748b
+}
+
+.main-content {
+    margin-left: 260px;
+    width: calc(100% - 260px);
+    min-height: 100vh;
+    background: var(--bg);
+    transition: .3s;
+    box-sizing: border-box
+}
+
+.main-content.expanded {
+    margin-left: 70px;
+    width: calc(100% - 70px)
+}
+
+.page-header {
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #fff;
+    border-bottom: 1px solid var(--bd)
+}
+
+.toggle {
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    color: #475569
+}
+
+.content {
+    padding: 24px
+}
+
+.layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.55fr) minmax(300px, .72fr);
+    gap: 22px;
+    align-items: start
+}
+
+.card {
+    background: #fff;
+    border: 1px solid var(--bd);
+    border-radius: 18px;
+    padding: 22px;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, .045)
+}
+
+.card h3 {
+    margin: 0 0 6px;
+    color: var(--tx);
+    font-size: 16px
+}
+
+.sub {
+    margin: 0 0 18px;
+    color: var(--mut);
+    font-size: 16px
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px
+}
+
+.group {
+    margin-bottom: 14px
+}
+
+.full {
+    grid-column: 1/-1
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    color: #475569;
+    font-size: 12px;
+    font-weight: 700
+}
+
+.control {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 11px;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    font: inherit;
+    font-size: 13px;
+    background: #fff;
+    outline: none
+}
+
+.control:focus {
+    border-color: #38bdf8;
+    box-shadow: 0 0 0 3px rgba(56, 189, 248, .12)
+}
+
+textarea.control {
+    min-height: 150px;
+    resize: vertical
+}
+
+.actions {
+    display: flex;
+    gap: 9px;
+    justify-content: flex-end;
+    flex-wrap: wrap
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 13px;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    font: inherit;
+    font-size: 12.5px;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer
+}
+
+.primary {
+    background: var(--dp);
+    color: #fff
+}
+
+.primary:hover {
+    background: var(--dpd)
+}
+
+.soft {
+    background: #fff;
+    color: #475569;
+    border-color: var(--bd)
+}
+
+.note {
+    padding: 13px;
+    border-radius: 12px;
+    background: #f0f9ff;
+    border: 1px solid #bae6fd;
+    color: #0c4a6e;
+    font-size: 11.5px;
+    line-height: 1.65
+}
+
+.steps {
+    display: grid;
+    gap: 10px;
+    margin-top: 14px
+}
+
+.step {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start
+}
+
+.num {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    color: #0369a1;
+    font-size: 15px;
+    font-weight: 800;
+    flex: 0 0 auto
+}
+
+.step strong {
+    display: block;
+    font-size: 16px;
+    color: #334155
+}
+
+.step span {
+    display: block;
+    margin-top: 2px;
+    font-size: 11px;
+    color: #64748b;
+    line-height: 1.45
+}
+
+.message {
+    padding: 11px 13px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    font-size: 12px
+}
+
+.error {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    color: #b91c1c
+}
+
+.file-help {
+    margin-top: 5px;
+    color: #94a3b8;
+    font-size: 10.5px
+}
+
+@media(max-width:1050px) {
+    .layout {
+        grid-template-columns: 1fr
+    }
+
+    .card {
+        padding: 20px
+    }
+}
+
+@media(max-width:768px) {
+
+    .main-content,
+    .main-content.expanded {
+        margin-left: 0;
+        width: 100%
+    }
+
+    .content {
+        padding: 14px
+    }
+
+    .page-header {
+        padding: 14px;
+        align-items: flex-start
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr
+    }
+
+    .full {
+        grid-column: auto
+    }
+
+    .card {
+        padding: 16px;
+        border-radius: 15px
+    }
+
+    .actions {
+        display: grid;
+        grid-template-columns: 1fr 1fr
+    }
+
+    .btn {
+        justify-content: center
+    }
+
+    .control {
+        font-size: 16px
+    }
+
+    .note {
+        font-size: 12px
+    }
+}
+
+@media(max-width:480px) {
+    .actions {
+        grid-template-columns: 1fr
+    }
+
+    .page-header h2 {
+        font-size: 18px !important
+    }
+}

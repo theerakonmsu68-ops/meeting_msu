@@ -1,0 +1,352 @@
+:root {
+    --dept-primary: #0284c7;
+    --dept-bg: #f8fafc;
+    --dept-border: #e2e8f0;
+    --dept-text: #1e293b;
+    --dept-muted: #64748b;
+}
+
+.main-content {
+    margin-left: 260px;
+    width: calc(100% - 260px);
+    min-height: 100vh;
+    background: var(--dept-bg);
+    transition: all .3s ease;
+    box-sizing: border-box;
+}
+
+.main-content.expanded {
+    margin-left: 70px;
+    width: calc(100% - 70px);
+}
+
+.department-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding: 18px 24px;
+    background: #fff;
+    border-bottom: 1px solid var(--dept-border);
+}
+
+.content-wrapper {
+    padding: 24px;
+}
+
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 10px;
+    margin-bottom: 18px;
+}
+
+.summary-card {
+    display: block;
+    padding: 13px 14px;
+    background: #fff;
+    border: 1px solid var(--dept-border);
+    border-radius: 13px;
+    text-decoration: none;
+    transition: .18s;
+}
+
+.summary-card:hover,
+.summary-card.active {
+    border-color: #38bdf8;
+    background: #f0f9ff;
+}
+
+.summary-card strong {
+    display: block;
+    font-size: 20px;
+    color: #1e293b;
+}
+
+.summary-card span {
+    display: block;
+    margin-top: 3px;
+    color: #64748b;
+    font-size: 11px;
+}
+
+.toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 14px;
+    flex-wrap: wrap;
+}
+
+.filter-tabs {
+    display: flex;
+    gap: 7px;
+    flex-wrap: wrap;
+}
+
+.filter-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 11px;
+    border: 1px solid #e2e8f0;
+    border-radius: 999px;
+    background: #fff;
+    color: #64748b;
+    text-decoration: none;
+    font-size: 11.5px;
+    font-weight: 600;
+}
+
+.filter-tab.active {
+    background: #0284c7;
+    color: #fff;
+    border-color: #0284c7;
+}
+
+.search-form {
+    display: flex;
+    gap: 7px;
+}
+
+.search-form input {
+    width: 250px;
+    padding: 9px 11px;
+    border: 1px solid #cbd5e1;
+    border-radius: 9px;
+    outline: none;
+    font: inherit;
+    font-size: 12px;
+}
+
+.search-form input:focus {
+    border-color: #38bdf8;
+    box-shadow: 0 0 0 3px rgba(56, 189, 248, .12);
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 8px 12px;
+    border: 1px solid transparent;
+    border-radius: 9px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.btn-primary {
+    color: #fff;
+    background: #0284c7;
+    border-color: #0284c7;
+}
+
+.btn-soft {
+    color: #475569;
+    background: #fff;
+    border-color: #e2e8f0;
+}
+
+.table-card {
+    overflow-x: auto;
+    background: #fff;
+    border: 1px solid var(--dept-border);
+    border-radius: 16px;
+    box-shadow: 0 5px 16px rgba(15, 23, 42, .04);
+}
+
+table {
+    width: 100%;
+    min-width: 1120px;
+    border-collapse: collapse;
+}
+
+th {
+    padding: 13px 14px;
+    background: #f8fafc;
+    color: #64748b;
+    font-size: 11.5px;
+    text-align: left;
+    white-space: nowrap;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+td {
+    padding: 14px;
+    color: #334155;
+    font-size: 12px;
+    vertical-align: top;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+tbody tr:hover {
+    background: #fbfdff;
+}
+
+.meeting-title {
+    min-width: 240px;
+}
+
+.meeting-title strong {
+    display: block;
+    color: #1e293b;
+    font-size: 13.5px;
+    line-height: 1.45;
+}
+
+.meeting-title span {
+    display: block;
+    margin-top: 4px;
+    color: #94a3b8;
+    font-size: 10.5px;
+}
+
+.meta-stack span {
+    display: block;
+    margin-bottom: 4px;
+    color: #64748b;
+    white-space: nowrap;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 8px;
+    border-radius: 999px;
+    font-size: 10.5px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.badge-pending {
+    color: #a16207;
+    background: #fef3c7;
+}
+
+.badge-attending {
+    color: #0369a1;
+    background: #e0f2fe;
+}
+
+.badge-present {
+    color: #15803d;
+    background: #dcfce7;
+}
+
+.badge-representative {
+    color: #7e22ce;
+    background: #f3e8ff;
+}
+
+.badge-declined {
+    color: #b91c1c;
+    background: #fee2e2;
+}
+
+.meeting-status {
+    color: #475569;
+    background: #f1f5f9;
+}
+
+.doc-count {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.doc-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 7px;
+    border-radius: 7px;
+    background: #f8fafc;
+    color: #64748b;
+    border: 1px solid #e2e8f0;
+    font-size: 10.5px;
+}
+
+.representative-box {
+    margin-top: 6px;
+    padding: 7px 8px;
+    border-radius: 8px;
+    background: #faf5ff;
+    color: #6b21a8;
+    font-size: 10.5px;
+    line-height: 1.45;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 18px;
+    flex-wrap: wrap;
+}
+
+.page-link {
+    display: inline-flex;
+    min-width: 34px;
+    height: 34px;
+    align-items: center;
+    justify-content: center;
+    padding: 0 8px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    background: #fff;
+    color: #475569;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.page-link.active {
+    background: #0284c7;
+    border-color: #0284c7;
+    color: #fff;
+}
+
+.empty-state {
+    padding: 48px 18px;
+    text-align: center;
+    color: #94a3b8;
+}
+
+@media (max-width:1150px) {
+    .summary-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width:768px) {
+
+    .main-content,
+    .main-content.expanded {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .content-wrapper {
+        padding: 15px;
+    }
+
+    .department-header {
+        padding: 15px;
+        align-items: flex-start;
+    }
+
+    .summary-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .search-form {
+        width: 100%;
+    }
+
+    .search-form input {
+        width: 100%;
+    }
+}

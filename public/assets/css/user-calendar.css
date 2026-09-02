@@ -1,0 +1,172 @@
+
+    .main-content {
+        margin-left: 260px;
+        width: calc(100% - 260px);
+        background-color: #f8fafc;
+        transition: all 0.3s ease;
+        box-sizing: border-box;
+    }
+
+    .main-content.expanded {
+        margin-left: 70px;
+        width: calc(100% - 70px);
+    }
+
+    .content-wrapper {
+        width: 100%;
+        padding: 24px;
+        box-sizing: border-box;
+    }
+
+    /* กล่องการ์ดคลุมปฏิทินแบบโมเดิร์น */
+    .calendar-card {
+        background: #ffffff;
+        border-radius: 16px;
+        border: 1px solid #e2e8f0;
+        padding: 24px;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.01);
+    }
+
+    /* ปรับแต่งสไตล์ปุ่มและการแสดงผลของ FullCalendar 6 ให้เข้ากับธีมหลัก */
+    .fc {
+        font-family: inherit;
+        --fc-border-color: #f1f5f9;
+        --fc-daygrid-event-dot-width: 8px;
+    }
+
+    /* 🔢 แก้ไขจุดที่ปุ่มติดกัน: เพิ่มระยะห่าง (Gap) ให้กับกลุ่มปุ่มของ FullCalendar */
+    .fc .fc-button-group {
+        gap: 8px !important; /* เพิ่มช่องว่างระหว่างปุ่มในกลุ่มเดียวกัน เช่น ปุ่ม ย้อนหลัง - ถัดไป */
+        background: none !important;
+        border: none !important;
+    }
+    
+    /* เพิ่มช่องว่างระหว่างกลุ่มปุ่มซ้าย-ขวา */
+    .fc-toolbar-chunk {
+        display: flex;
+        align-items: center;
+        gap: 10px; 
+    }
+
+    /* ปรับแต่งส่วนหัวปฏิทิน Toolbar */
+    .fc .fc-toolbar-title {
+        font-size: 18px !important;
+        font-weight: 600 !important;
+        color: #1e293b !important;
+    }
+
+    /* สไตล์ปุ่มกดต่างๆ ของ FullCalendar */
+    .fc .fc-button-primary {
+        background-color: #ffffff !important;
+        border-color: #e2e8f0 !important;
+        color: #475569 !important;
+        font-size: 13.5px !important;
+        font-weight: 500 !important;
+        padding: 6px 14px !important;
+        border-radius: 8px !important; /* บังคับให้ทุกปุ่มแยกกันเป็นทรงมนเดี่ยว ๆ */
+        text-transform: capitalize !important;
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05) !important;
+        transition: all 0.15s ease;
+    }
+
+    .fc .fc-button-primary:hover {
+        background-color: #f1f5f9 !important;
+        border-color: #cbd5e1 !important;
+        color: #0f172a !important;
+    }
+
+    /* สิทธิ์ความเด่นของปุ่ม Active / Today */
+    .fc .fc-button-primary:not(:disabled).fc-button-active,
+    .fc .fc-button-primary:not(:disabled):active {
+        background-color: #2563eb !important;
+        border-color: #2563eb !important;
+        color: #ffffff !important;
+        font-weight: 500 !important;
+        box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2) !important;
+    }
+
+    .fc .fc-today-button {
+        background-color: rgba(37, 99, 235, 0.06) !important;
+        border-color: rgba(37, 99, 235, 0.15) !important;
+        color: #2563eb !important;
+        border-radius: 8px !important;
+    }
+    .fc .fc-today-button:hover {
+        background-color: #2563eb !important;
+        color: #ffffff !important;
+    }
+
+    /* จัดระเบียบหัวตารางวัน (อาทิตย์ - เสาร์) */
+    .fc th {
+        background-color: #fafafa;
+        padding: 10px 0 !important;
+        font-weight: 500 !important;
+        color: #475569 !important;
+        font-size: 13.5px !important;
+        border-bottom: 1px solid #e2e8f0 !important;
+    }
+
+    /* ปรับแต่งช่องวันที่ */
+    .fc .fc-daygrid-day-number {
+        font-size: 13px !important;
+        font-weight: 400 !important;
+        color: #64748b;
+        padding: 6px 8px !important;
+        text-decoration: none !important;
+    }
+
+    /* ไฮไลท์วันปัจจุบัน (Today) ในช่องปฏิทิน */
+    .fc .fc-day-today {
+        background-color: rgba(37, 99, 235, 0.02) !important;
+    }
+    .fc .fc-day-today .fc-daygrid-day-number {
+        color: #2563eb !important;
+        font-weight: 600 !important;
+    }
+
+    /* ปรับแต่งแท็บการแสดงเหตุการณ์ (Events) */
+    .fc-v-event, .fc-h-event {
+        background-color: #2563eb !important;
+        border-color: #2563eb !important;
+        border-radius: 6px !important;
+        padding: 2px 6px !important;
+        cursor: pointer;
+    }
+
+    .fc-event-title {
+        font-size: 12px !important;
+        font-weight: 400 !important;
+    }
+
+    .fc-event-time {
+        font-size: 11px !important;
+        font-weight: 500 !important;
+    }
+
+    /* จัดระเบียบสไตล์กรณีดูแบบ List แผนงาน */
+    .fc .fc-list-event:hover td {
+        background-color: #f8fafc !important;
+    }
+    .fc .fc-list-day-cushion {
+        background-color: #fafafa !important;
+        padding: 8px 14px !important;
+    }
+    .fc .fc-list-day-text, .fc .fc-list-day-side-text {
+        font-size: 13.5px !important;
+        font-weight: 500 !important;
+        color: #334155 !important;
+        text-decoration: none !important;
+    }
+    .fc .fc-list-event-title {
+        font-size: 13.5px !important;
+        color: #1e293b !important;
+    }
+
+    @media (max-width: 768px) {
+        .main-content,
+        .main-content.expanded {
+            margin-left: 0;
+            width: 100%;
+        }
+        .content-wrapper { padding: 16px; }
+    }

@@ -1,0 +1,434 @@
+/* =====================================
+   1. BASE STYLES & LAYOUT
+===================================== */
+.main-content {
+    margin-left: 268px;
+    width: calc(100% - 268px);
+    min-width: 0;
+    min-height: 100vh;
+    box-sizing: border-box;
+    background: #f8fafc;
+    transition: margin-left .26s ease, width .26s ease;
+}
+
+.main-content.expanded {
+    margin-left: 74px;
+    width: calc(100% - 74px);
+}
+
+.content-wrapper {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Grid & Layout Units */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    margin-bottom: 24px;
+}
+
+.dashboard-chart-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+    margin-bottom: 24px;
+}
+
+/* =====================================
+   2. CARDS & UI COMPONENTS
+===================================== */
+.card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 22px;
+    box-shadow: none;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+.card-icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 46px;
+    height: 46px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-icon i {
+    width: 24px;
+    height: 24px;
+}
+
+.card-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #64748b;
+    margin-bottom: 8px;
+}
+
+.card-value {
+    font-size: 32px;
+    font-weight: 800;
+    color: #0f172a;
+    line-height: 1;
+    margin-bottom: 12px;
+}
+
+.card-desc {
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.card-desc i {
+    width: 16px;
+    height: 16px;
+}
+
+/* Card Variations */
+.card-users {
+    border-top: 4px solid #2563eb;
+}
+.card-users .card-icon {
+    background-color: #eff6ff;
+    color: #2563eb;
+}
+.card-users .card-desc {
+    color: #2563eb;
+}
+
+.card-pending {
+    border-top: 4px solid #ea580c;
+}
+.card-pending .card-icon {
+    background-color: #fff7ed;
+    color: #ea580c;
+}
+.card-pending .card-desc {
+    color: #ea580c;
+}
+
+.card-meetings {
+    border-top: 4px solid #16a34a;
+}
+.card-meetings .card-icon {
+    background-color: #f0fdf4;
+    color: #16a34a;
+}
+.card-meetings .card-desc {
+    color: #16a34a;
+}
+
+/* Section Title */
+.section-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 18px 0 16px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.section-title i {
+    width: 18px;
+    height: 18px;
+    color: #475569;
+}
+
+/* =====================================
+   3. CHARTS
+===================================== */
+.chart-card {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.chart-card h3 {
+    margin: 0 0 15px;
+    font-size: 16px;
+    color: #1e293b;
+    flex: 0 0 auto;
+}
+
+.chart-wrapper {
+    position: relative;
+    height: 260px;
+    width: 100%;
+    flex: 1;
+}
+
+.chart-card canvas {
+    max-width: 100%;
+}
+
+/* =====================================
+   4. TABLES & BADGES
+===================================== */
+.table-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    width: 100%;
+}
+
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 700px;
+}
+
+th {
+    background: #f8fafc;
+    padding: 16px;
+    text-align: left;
+    font-size: 15px;
+    font-weight: 700;
+    color: #475569;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+td {
+    padding: 16px;
+    font-size: 15px;
+    color: #334155;
+    border-bottom: 1px solid #f1f5f9;
+    white-space: nowrap;
+}
+
+table td:first-child {
+    white-space: normal;
+    word-break: break-word;
+    min-width: 200px;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+/* Status Badges & Utilities */
+.status-badge {
+    padding: 6px 12px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 700;
+    display: inline-block;
+}
+
+.status-ongoing {
+    background-color: #eff6ff;
+    color: #2563eb;
+    border: 1px solid #bfdbfe;
+}
+
+.status-upcoming {
+    background-color: #fffbeb;
+    color: #d97706;
+    border: 1px solid #fef3c7;
+}
+
+.status-completed {
+    background-color: #f0fdf4;
+    color: #16a34a;
+    border: 1px solid #bbf7d0;
+}
+
+.status-cancelled {
+    background-color: #fef2f2;
+    color: #dc2626;
+    border: 1px solid #fca5a5;
+}
+
+.avatar,
+.avatar-img {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.avatar {
+    background-color: #e2e8f0;
+    color: #475569;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 40px !important;
+    color: #64748b;
+    font-size: 15px;
+}
+
+.empty-state i {
+    width: 32px;
+    height: 32px;
+    color: #94a3b8;
+    margin-bottom: 8px;
+}
+
+.error-state {
+    background-color: #fef2f2;
+    color: #991b1b;
+    padding: 16px !important;
+    border-radius: 8px;
+    margin: 10px;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* =====================================
+   5. RESPONSIVE BREAKPOINTS
+===================================== */
+
+/* Desktop L / Laptop (Max-width: 1200px) */
+@media (max-width: 1200px) {
+    .content-wrapper {
+        padding: 18px;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+    }
+
+    .card {
+        padding: 18px;
+    }
+}
+
+/* Tablets / Small Laptops (Max-width: 992px) */
+@media (max-width: 992px) {
+    .header {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .header-right {
+        margin-left: auto;
+    }
+
+    .dashboard-chart-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .chart-card {
+        height: 360px;
+    }
+
+    .chart-card canvas {
+        flex: 1;
+        min-height: 0 !important;
+        max-height: 280px !important;
+    }
+}
+
+/* Mobile & Portrait Tablets (Max-width: 768px) */
+@media (max-width: 768px) {
+    .main-content,
+    .main-content.expanded {
+        margin-left: 0 !important;
+        width: 100% !important;
+    }
+
+    .content-wrapper {
+        padding: 12px;
+    }
+
+    .header {
+        padding: 12px 14px;
+    }
+
+    .header-left h2 {
+        font-size: 16px !important;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .card {
+        border-radius: 14px;
+        padding: 16px;
+    }
+
+    .card-value {
+        font-size: 28px;
+    }
+
+    .section-title {
+        font-size: 17px;
+    }
+
+    th, td {
+        font-size: 14px;
+    }
+
+    .table-card {
+        border-radius: 12px;
+    }
+}
+
+/* Small Mobile Devices (Max-width: 480px) */
+@media (max-width: 480px) {
+    .header-left h2 {
+        display: none;
+    }
+
+    .toggle-btn {
+        width: 42px;
+        height: 42px;
+    }
+
+    .content-wrapper {
+        padding: 10px;
+    }
+
+    .card-value {
+        font-size: 22px;
+    }
+
+    .avatar,
+    .avatar-img {
+        width: 34px;
+        height: 34px;
+    }
+}

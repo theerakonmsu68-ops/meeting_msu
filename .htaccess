@@ -1,0 +1,6 @@
+<FilesMatch "\.sql$">
+    Require all denied
+</FilesMatch>
+
+RewriteEngine On
+RewriteRule ^\.history(?:/|$) - [F,L]

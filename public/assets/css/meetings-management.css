@@ -1,0 +1,2734 @@
+/* 🧱 1. โครงสร้าง Layout หน้าหลักเพื่อป้องกัน Flexbox ดันองค์ประกอบอื่น */
+.main-content {
+
+    margin-left: 268px;
+
+    width: calc(100% - 268px);
+
+    min-width: 0;
+
+    min-height: 100vh;
+
+    box-sizing: border-box;
+
+    transition:
+        margin-left .26s ease,
+        width .26s ease;
+}
+
+
+/* ตอน Sidebar หุบ */
+.main-content.expanded {
+
+    margin-left: 74px;
+
+    width: calc(100% - 74px);
+
+}
+
+.content-wrapper {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* 📊 2. การจัดการพื้นที่และสกรอลบาร์ของตารางหลัก (Table Card) */
+.table-card {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    /* ✨ เปิดสกรอลบาร์แนวนอนเมื่อข้อมูลกว้างเกินจอ */
+    overflow-y: hidden;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    border: 1px solid #e2e8f0;
+    -webkit-overflow-scrolling: touch;
+}
+
+.table-card table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 1200px;
+}
+
+.table-card th,
+.table-card td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid #f1f5f9;
+    white-space: nowrap;
+}
+
+.table-card td:nth-child(1),
+.table-card td:nth-child(4) {
+    white-space: normal;
+    min-width: 220px;
+}
+
+.table-card::-webkit-scrollbar {
+    height: 6px;
+}
+
+.table-card::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 8px;
+}
+
+.table-card::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 8px;
+}
+
+.table-card::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+.btn-table-link {
+    background-color: #f0fdf4;
+    color: #16a34a;
+    border: 1px solid #bbf7d0;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.btn-table-link:hover {
+    background-color: #dcfce7;
+    color: #15803d;
+}
+
+.btn-table-link svg {
+    width: 14px;
+    height: 14px;
+}
+
+.doc-list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    max-width: 200px;
+}
+
+.btn-table-doc-item {
+    color: #2563eb;
+    font-size: 13px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.btn-table-doc-item:hover {
+    text-decoration: underline;
+    color: #1d4ed8;
+}
+
+.btn-table-doc-item svg {
+    width: 13px;
+    height: 13px;
+    flex-shrink: 0;
+}
+
+.text-muted-dash {
+    color: #94a3b8;
+    font-size: 13px;
+}
+
+.btn-table-invite {
+    background-color: #eff6ff;
+    color: #1d4ed8;
+    border: 1px solid #bfdbfe;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.btn-table-invite:hover {
+    background-color: #dbeafe;
+    color: #1e40af;
+    transform: translateY(-1px);
+}
+
+.btn-table-invite svg {
+    width: 14px;
+    height: 14px;
+}
+
+.invitation-help {
+    margin: 0 0 14px;
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1px solid #bae6fd;
+    background: #f0f9ff;
+    color: #075985;
+    font-size: 13px;
+    line-height: 1.55;
+}
+
+.invitation-summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 12px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    color: #334155;
+    font-size: 13px;
+}
+
+.invitation-summary strong {
+    color: #1d4ed8;
+    font-size: 16px;
+}
+
+.btn-table-agenda {
+    background-color: #f1f5f9;
+    color: #334155;
+    border: 1px solid #e2e8f0;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s;
+}
+
+.btn-table-agenda:hover {
+    background-color: #e2e8f0;
+    color: #0f172a;
+}
+
+.btn-table-agenda svg {
+    width: 14px;
+    height: 14px;
+}
+
+/* 🪟 3. ชุดสไตล์ตกแต่งม่านและกล่อง Modal รูปแบบ Fixed Header & Footer */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.modal.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-box {
+    background-color: #ffffff;
+    width: 95%;
+    max-width: 1000px;
+    max-height: 90vh;
+
+    border-radius: 16px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+
+    display: flex;
+    flex-direction: column;
+
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+
+    overflow: hidden;
+}
+
+.modal.show .modal-box {
+    transform: translateY(0);
+}
+
+.modal-box h3 {
+    padding: 20px 24px;
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: #1e293b;
+    border-bottom: 1px solid #f1f5f9;
+    background-color: #ffffff;
+}
+
+.modal-form-body {
+    padding: 24px;
+    overflow-y: auto;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-actions {
+    padding: 16px 24px;
+    background-color: #f8fafc;
+    border-top: 1px solid #f1f5f9;
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin: 0;
+}
+
+.modal-form-body label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #475569;
+    margin-bottom: 6px;
+}
+
+.modal-form-body input[type="text"],
+.modal-form-body input[type="date"],
+.modal-form-body input[type="time"],
+.modal-form-body input[type="url"],
+.modal-form-body select {
+    padding: 10px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #1e293b;
+    margin-bottom: 16px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.modal-form-body input:focus,
+.modal-form-body select:focus {
+    border-color: #2563eb;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* 🟢 ตกแต่ง Badge แสดงสถานะภายในตาราง */
+.status-badge {
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.status-upcoming {
+    background-color: #eff6ff;
+    color: #2563eb;
+    border: 1px solid #bfdbfe;
+}
+
+.status-ongoing {
+    background-color: #fef2f2;
+    color: #ef4444;
+    border: 1px solid #fee2e2;
+}
+
+.status-closed {
+    background-color: #f1f5f9;
+    color: #64748b;
+    border: 1px solid #cbd5e1;
+}
+
+/* 🔴 พื้นที่ควบคุมสถานะแบบพิเศษใน Modal */
+.status-control-container {
+    background-color: #fffbeb;
+    padding: 16px;
+    border-radius: 12px;
+    border: 1px solid #fef3c7;
+    margin-bottom: 16px;
+}
+
+.modal-actions button {
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.modal-actions button:first-child {
+    background-color: #2563eb;
+    color: #ffffff;
+    border: none;
+}
+
+.modal-actions button:first-child:hover {
+    background-color: #1d4ed8;
+}
+
+.modal-actions button:last-child {
+    background-color: #ffffff;
+    color: #64748b;
+    border: 1px solid #cbd5e1;
+}
+
+.modal-actions button:last-child:hover {
+    background-color: #f8fafc;
+    color: #334155;
+}
+
+.modal-form-body::-webkit-scrollbar {
+    width: 6px;
+}
+
+.modal-form-body::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.modal-form-body::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+
+.modal-form-body::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+.upload-zone {
+    border: 2px dashed #cbd5e1;
+    border-radius: 12px;
+    padding: 24px;
+    text-align: center;
+    background-color: #f8fafc;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+.upload-zone:hover,
+.upload-zone.dragover {
+    border-color: #2563eb;
+    background-color: #eff6ff;
+}
+
+.upload-zone svg {
+    width: 40px;
+    height: 40px;
+    color: #64748b;
+    transition: color 0.2s;
+}
+
+.upload-zone:hover svg,
+.upload-zone.dragover svg {
+    color: #2563eb;
+}
+
+.upload-zone p {
+    font-size: 14px;
+    color: #475569;
+    margin: 0;
+}
+
+.upload-zone span {
+    font-size: 12px;
+    color: #94a3b8;
+}
+
+.file-preview-list {
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.file-preview-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f1f5f9;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    color: #334155;
+    border: 1px solid #e2e8f0;
+}
+
+.file-preview-item .file-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.file-preview-item svg {
+    width: 16px;
+    height: 16px;
+    color: #2563eb;
+    flex-shrink: 0;
+}
+
+.btn-add-agenda {
+    background-color: #fff;
+    color: #2563eb;
+    border: 1px dashed #2563eb;
+    padding: 10px 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+}
+
+.btn-add-agenda:hover {
+    background-color: #f0f5ff;
+    border-style: solid;
+}
+
+.btn-add-agenda svg {
+    width: 16px;
+    height: 16px;
+}
+
+.agenda-item {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.agenda-item input {
+    padding: 8px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.agenda-item .agenda-title {
+    flex: 2;
+    margin-bottom: 0 !important;
+}
+
+.agenda-item .agenda-detail {
+    flex: 3;
+    margin-bottom: 0 !important;
+}
+
+.btn-remove-agenda {
+    background: none;
+    border: none;
+    color: #ef4444;
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s;
+}
+
+.btn-remove-agenda:hover {
+    color: #b91c1c;
+}
+
+.btn-remove-agenda svg {
+    width: 18px;
+    height: 18px;
+}
+
+.modal-title-with-icon {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #1e293b;
+    border-bottom: 2px solid #2563eb;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.modal-title-with-icon svg {
+    width: 24px;
+    height: 24px;
+    color: #2563eb;
+}
+
+.agenda-view-box {
+    max-height: 400px;
+    overflow-y: auto;
+    margin: 15px 0;
+    padding-right: 5px;
+}
+
+.agenda-card {
+    background-color: #f8fafc;
+    border-left: 4px solid #2563eb;
+    padding: 12px 16px;
+    margin-bottom: 12px;
+    border-radius: 0 8px 8px 0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.agenda-card-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.agenda-card-title svg {
+    width: 16px;
+    height: 16px;
+    color: #2563eb;
+}
+
+.agenda-card-detail {
+    font-size: 14px;
+    color: #64748b;
+    line-height: 1.4;
+    padding-left: 22px;
+}
+
+.agenda-empty {
+    text-align: center;
+    color: #94a3b8;
+    padding: 40px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.agenda-empty svg {
+    width: 32px;
+    height: 32px;
+    color: #cbd5e1;
+}
+
+/* 📄 [เพิ่มส่วนนี้] ชุดสไตล์สำหรับการแต่งปุ่ม Pagination ข้อมูล */
+.pagination-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 16px;
+    padding: 10px 4px;
+    background-color: transparent;
+}
+
+.pagination-info {
+    font-size: 14px;
+    color: #64748b;
+}
+
+.pagination-list {
+    display: flex;
+    gap: 6px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.pagination-item a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 36px;
+    height: 36px;
+    padding: 0 8px;
+    border: 1px solid #e2e8f0;
+    background-color: #ffffff;
+    color: #334155;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.pagination-item a:hover {
+    background-color: #f1f5f9;
+    border-color: #cbd5e1;
+}
+
+.pagination-item.active a {
+    background-color: #2563eb;
+    color: #ffffff;
+    border-color: #2563eb;
+}
+
+.pagination-item.disabled a {
+    color: #cbd5e1;
+    pointer-events: none;
+    background-color: #f8fafc;
+    border-color: #e2e8f0;
+}
+
+
+/* ===============================
+       รายงานผู้เข้าร่วมประชุม
+    =============================== */
+.btn-table-report {
+    background-color: #fff7ed;
+    color: #c2410c;
+    border: 1px solid #fed7aa;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+}
+
+.btn-table-report:hover {
+    background-color: #ffedd5;
+}
+
+.attendance-modal-box {
+    max-width: 1100px;
+    width: 95%;
+}
+
+.attendance-summary {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(130px, 1fr));
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.attendance-summary-card {
+    padding: 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    background: #f8fafc;
+}
+
+.attendance-summary-card strong {
+    display: block;
+    font-size: 20px;
+    color: #0f172a;
+}
+
+.attendance-summary-card span {
+    font-size: 12px;
+    color: #64748b;
+}
+
+.attendance-table-wrapper {
+    overflow-x: auto;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+}
+
+.attendance-table {
+    width: 100%;
+    min-width: 1050px;
+    border-collapse: collapse;
+}
+
+.attendance-table th,
+.attendance-table td {
+    padding: 10px;
+    border-bottom: 1px solid #e2e8f0;
+    vertical-align: top;
+    text-align: left;
+    font-size: 13px;
+}
+
+.attendance-row.is-excluded {
+    opacity: 0.45;
+    background: #f8fafc;
+}
+
+.attendance-table th {
+    background: #f8fafc;
+    color: #475569;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.attendance-table select,
+.attendance-table input {
+    width: 100%;
+    min-width: 130px;
+    padding: 8px 9px;
+    border: 1px solid #cbd5e1;
+    border-radius: 7px;
+    box-sizing: border-box;
+    font-size: 13px;
+}
+
+.representative-fields {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+}
+
+/* ===============================
+       รายชื่อผู้ได้รับเชิญ
+    =============================== */
+.invitee-panel {
+    margin-top: 16px;
+    border: 1px solid #dbeafe;
+    border-radius: 12px;
+    background: #f8fbff;
+    overflow: hidden;
+}
+
+.invitee-panel-header {
+    padding: 12px 14px;
+    background: #eff6ff;
+    border-bottom: 1px solid #dbeafe;
+}
+
+.invitee-toolbar {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 10px;
+    margin-top: 10px;
+    align-items: center;
+}
+
+.invitee-toolbar input[type="search"] {
+    width: 100%;
+    margin: 0;
+}
+
+.invitee-select-all {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    white-space: nowrap;
+    font-size: 13px;
+    color: #334155;
+    cursor: pointer;
+}
+
+.invitee-select-all input,
+.invitee-item input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.invitee-checkmark {
+    width: 22px;
+    height: 22px;
+    flex: 0 0 22px;
+    border: 2px solid #94a3b8;
+    border-radius: 6px;
+    background: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    transition: all 0.16s ease;
+}
+
+.invitee-checkmark::after {
+    content: '✓';
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 1;
+    opacity: 0;
+    transform: scale(0.55);
+    transition: all 0.14s ease;
+}
+
+.invitee-select-all input:checked+.invitee-checkmark,
+.invitee-item input[type="checkbox"]:checked+.invitee-checkmark {
+    background: #2563eb;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.invitee-select-all input:checked+.invitee-checkmark::after,
+.invitee-item input[type="checkbox"]:checked+.invitee-checkmark::after {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.invitee-select-all input:indeterminate+.invitee-checkmark {
+    background: #f59e0b;
+    border-color: #f59e0b;
+    box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.12);
+}
+
+.invitee-select-all input:indeterminate+.invitee-checkmark::after {
+    content: '−';
+    opacity: 1;
+    transform: scale(1);
+}
+
+.invitee-select-all input:focus-visible+.invitee-checkmark,
+.invitee-item input[type="checkbox"]:focus-visible+.invitee-checkmark {
+    outline: 3px solid rgba(37, 99, 235, 0.25);
+    outline-offset: 2px;
+}
+
+.invitee-item input[type="checkbox"]:disabled+.invitee-checkmark {
+    background: #16a34a;
+    border-color: #16a34a;
+    box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.12);
+    cursor: not-allowed;
+}
+
+.invitee-select-all input:disabled+.invitee-checkmark {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+.invitee-list {
+    max-height: 260px;
+    overflow-y: auto;
+    padding: 8px;
+}
+
+.invitee-item {
+    display: grid;
+    grid-template-columns: 26px 1fr auto;
+    gap: 10px;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid transparent;
+    border-radius: 9px;
+    cursor: pointer;
+    transition: background 0.16s ease, border-color 0.16s ease, box-shadow 0.16s ease;
+}
+
+.invitee-item:hover {
+    background: #ffffff;
+    border-color: #dbeafe;
+}
+
+.invitee-item.is-selected {
+    background: #eff6ff;
+    border-color: #93c5fd;
+    box-shadow: inset 3px 0 0 #2563eb;
+}
+
+.invitee-item.is-locked {
+    background: #f0fdf4;
+    border-color: #bbf7d0;
+    box-shadow: inset 3px 0 0 #16a34a;
+    cursor: not-allowed;
+}
+
+.invitee-item.is-locked:hover {
+    background: #f0fdf4;
+    border-color: #86efac;
+}
+
+.invitee-item strong {
+    display: block;
+    font-size: 14px;
+    color: #0f172a;
+}
+
+.invitee-item small {
+    display: block;
+    margin-top: 2px;
+    color: #64748b;
+    font-size: 12px;
+}
+
+.invitee-rsvp {
+    padding: 3px 8px;
+    border-radius: 999px;
+    background: #f1f5f9;
+    color: #475569;
+    font-size: 11px;
+    white-space: nowrap;
+}
+
+.invitee-rsvp.is-locked {
+    background: #dcfce7;
+    color: #166534;
+    border: 1px solid #86efac;
+    font-weight: 700;
+}
+
+.invitee-empty {
+    padding: 24px;
+    text-align: center;
+    color: #64748b;
+}
+
+.agenda-item {
+    display: block;
+    padding: 14px;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    background: #f8fafc;
+    margin-bottom: 12px;
+}
+
+.agenda-input-row {
+    display: grid;
+    grid-template-columns: 2fr 3fr auto;
+    gap: 10px;
+    align-items: center;
+}
+
+.agenda-input-row input {
+    width: 100%;
+}
+
+.agenda-file-row {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px dashed #cbd5e1;
+}
+
+/* ===============================
+   ช่องแนบไฟล์เอกสาร
+   =============================== */
+
+.agenda-file-input {
+    display: block;
+    width: 100%;
+
+    margin-top: 10px;
+
+    padding: 14px 16px;
+
+    font-size: 18px;
+
+    font-family: "TH Sarabun New", "Sarabun", sans-serif;
+
+    color: #334155;
+
+    background-color: #f8fafc;
+
+    border: 2px dashed #cbd5e1;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+
+    box-sizing: border-box;
+}
+
+
+/* ตอนเอาเมาส์ชี้ */
+.agenda-file-input:hover {
+    background-color: #eff6ff;
+
+    border-color: #2563eb;
+}
+
+
+/* ตอนกดเลือกไฟล์ */
+.agenda-file-input:focus {
+    outline: none;
+
+    border-color: #2563eb;
+
+    box-shadow:
+        0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+
+/* ปุ่มเลือกไฟล์ด้านใน */
+.agenda-file-input::file-selector-button {
+
+    padding: 10px 18px;
+
+    margin-right: 12px;
+
+    font-size: 18px;
+
+    font-family: "TH Sarabun New", "Sarabun", sans-serif;
+
+    font-weight: 600;
+
+    color: #ffffff;
+
+    background-color: #2563eb;
+
+    border: none;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+}
+
+
+.agenda-file-input::file-selector-button:hover {
+
+    background-color: #1d4ed8;
+}
+
+.agenda-existing-docs {
+    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.agenda-existing-doc {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 7px 9px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 7px;
+    font-size: 12px;
+}
+
+.agenda-existing-doc a {
+    color: #2563eb;
+    text-decoration: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.btn-remove-existing-doc {
+    border: 0;
+    background: transparent;
+    color: #dc2626;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.agenda-card-documents {
+    margin-top: 10px;
+    padding-left: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.agenda-card-documents a {
+    color: #2563eb;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+@media (max-width: 760px) {
+    .attendance-summary {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .agenda-input-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media print {
+    body * {
+        visibility: hidden !important;
+    }
+
+    #attendanceModal,
+    #attendanceModal * {
+        visibility: visible !important;
+    }
+
+    #attendanceModal {
+        position: absolute;
+        inset: 0;
+        background: #fff;
+        display: block;
+        opacity: 1;
+    }
+
+    #attendanceModal .modal-box {
+        width: 100%;
+        max-width: none;
+        max-height: none;
+        box-shadow: none;
+    }
+
+    #attendanceModal .modal-actions,
+    #attendanceModal select,
+    #attendanceModal input {
+        print-color-adjust: exact;
+    }
+
+    #attendanceModal .attendance-row.is-excluded {
+        display: none !important;
+    }
+
+    #attendanceModal .modal-actions {
+        display: none !important;
+    }
+}
+
+
+
+/* ===============================
+   RESPONSIVE ADMIN MEETINGS FINAL
+   =============================== */
+
+@media (max-width:1200px) {
+    .content-wrapper {
+        padding: 16px;
+    }
+
+    .header-right {
+        gap: 10px;
+    }
+
+    .table-card table {
+        min-width: 1100px;
+    }
+
+    .modal-box {
+        width: 94%;
+    }
+}
+
+
+@media (max-width:992px) {
+
+    .main-content,
+    .main-content.expanded {
+        width: 100%;
+    }
+
+    .content-wrapper {
+        padding: 14px;
+    }
+
+    .header {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .header-right {
+        width: 100%;
+    }
+
+    #searchInput {
+        width: 100%;
+    }
+
+    .btn-add {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .table-card {
+        border-radius: 12px;
+    }
+
+    .pagination-container {
+        flex-wrap: wrap;
+        gap: 12px;
+        justify-content: center;
+    }
+
+    .attendance-summary {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+@media (max-width:768px) {
+
+    .main-content,
+    .main-content.expanded {
+        margin-left: 0 !important;
+        width: 100% !important;
+    }
+
+    .header {
+        padding: 12px;
+    }
+
+    .header-left h2 {
+        font-size: 16px;
+    }
+
+    .content-wrapper {
+        padding: 10px;
+    }
+
+    .table-card {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .table-card table {
+        min-width: 1050px;
+    }
+
+    .modal-box {
+        width: calc(100% - 20px);
+        max-height: 90vh;
+    }
+
+    .modal-form-body {
+        padding: 16px;
+    }
+
+    .modal-actions {
+        flex-direction: column;
+    }
+
+    .modal-actions button {
+        width: 100%;
+    }
+
+    .agenda-input-row {
+        grid-template-columns: 1fr;
+    }
+
+    .invitee-toolbar {
+        grid-template-columns: 1fr;
+    }
+
+    .representative-fields {
+        grid-template-columns: 1fr;
+    }
+
+    .attendance-summary {
+        grid-template-columns: 1fr;
+    }
+
+    .pagination-list {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+
+/* <!-- ➕ CSS สำหรับ Filter UI (ยึดตามดีไซน์เดิมที่คุณถูกใจ) --> */
+
+.filter-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+    border: 1px solid #f1f5f9;
+}
+
+.filter-card h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #1e293b;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.filter-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: flex-end;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+    min-width: 180px;
+}
+
+.form-group.search-group {
+    flex: 2;
+    min-width: 250px;
+}
+
+.form-group label {
+    font-size: 14px;
+    color: #64748b;
+    font-weight: 500;
+}
+
+.form-control {
+    padding: 12px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #334155;
+    background-color: #f8fafc;
+    transition: all 0.2s ease;
+    font-family: inherit;
+}
+
+.form-control::placeholder {
+    font-size: 15px;
+    color: #94a3b8;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #3b82f6;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.filter-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.btn-search {
+    padding: 12px 20px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-search:hover {
+    background: #1d4ed8;
+}
+
+.btn-clear {
+    padding: 12px 20px;
+    background: #ffffff;
+    color: #475569;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-clear:hover {
+    background: #f1f5f9;
+    color: #1e293b;
+}
+
+/* =====================================
+   Filter Select - Senior Friendly Style
+===================================== */
+
+
+.filter-card .form-group select.form-control {
+
+
+    height:48px;
+
+
+    padding:0 42px 0 16px;
+
+
+    border:1px solid #cbd5e1;
+
+
+    border-radius:10px;
+
+
+    background-color:#fff;
+
+
+    color:#334155;
+
+
+    font-size:16px;
+
+
+    font-weight:600;
+
+
+    cursor:pointer;
+
+
+    appearance:none;
+
+
+    background-image:
+
+
+    linear-gradient(45deg, transparent 50%, #64748b 50%),
+
+
+    linear-gradient(135deg, #64748b 50%, transparent 50%);
+
+
+    background-position:
+
+
+    calc(100% - 18px) 20px,
+
+
+    calc(100% - 12px) 20px;
+
+
+    background-size:
+
+    6px 6px,
+
+    6px 6px;
+
+
+    background-repeat:no-repeat;
+
+
+}
+
+
+
+/* Hover */
+
+.filter-card .form-group select.form-control:hover {
+
+
+    border-color:#93c5fd;
+
+
+}
+
+
+
+/* Focus */
+
+.filter-card .form-group select.form-control:focus {
+
+
+    outline:none;
+
+
+    border-color:#2563eb;
+
+
+    box-shadow:
+
+    0 0 0 3px rgba(37,99,235,.12);
+
+
+}
+
+
+
+/* Label ของ Filter */
+
+.filter-card .form-group label {
+
+
+    font-size:14px;
+
+
+    font-weight:700;
+
+
+    color:#475569;
+
+
+    margin-bottom:8px;
+
+
+}
+
+
+
+/* ช่องค้นหาและ Select ให้เท่ากัน */
+
+.filter-card .form-control {
+
+
+    min-height:48px;
+
+
+    box-sizing:border-box;
+
+
+}
+
+
+
+/* Option */
+
+.filter-card select option {
+
+
+    font-size:16px;
+
+
+    padding:10px;
+
+
+}
+
+
+
+@media (max-width:480px) {
+
+    .header-left h2 {
+        display: none;
+    }
+
+    .toggle-btn {
+        position: relative;
+        /* หรือ fixed ขึ้นอยู่กับโครงสร้างหน้า Layout */
+        z-index: 1001;
+        /* ตั้งค่าให้สูงกว่า z-index ของ Sidebar (เช่น ถ้า Sidebar เป็น 1000 ให้ใช้ 1001) */
+        cursor: pointer;
+    }
+
+    .content-wrapper {
+        padding: 8px;
+    }
+
+    .modal-box h3 {
+        padding: 16px;
+        font-size: 16px;
+    }
+
+    input,
+    select,
+    button {
+        min-height: 42px;
+    }
+}
+
+/* =========================================
+   Elderly Friendly UI
+   ปรับ Modal สำหรับเลขานุการผู้สูงอายุ
+   ========================================= */
+
+/* ขนาด Modal */
+.modal-box {
+    width: 95%;
+    max-width: 1000px;
+    max-height: 90vh;
+}
+
+/* หัวข้อ Modal */
+.modal-box h3 {
+    padding: 24px 30px;
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+/* พื้นที่เนื้อหา */
+.modal-form-body {
+    padding: 30px;
+}
+
+/* Label */
+.modal-form-body label {
+    font-size: 18px;
+    font-weight: 600;
+    color: #334155;
+    margin-bottom: 10px;
+}
+
+/* ช่องกรอกข้อมูล */
+.modal-form-body input[type="text"],
+.modal-form-body input[type="date"],
+.modal-form-body input[type="time"],
+.modal-form-body input[type="url"],
+.modal-form-body select,
+.modal-form-body textarea,
+.agenda-item input,
+.agenda-detail {
+    min-height: 50px;
+    padding: 12px 16px;
+    font-size: 18px;
+    line-height: 1.8;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+/* ช่องรายละเอียด */
+.agenda-detail {
+    width: 100%;
+    min-height: 120px;
+    resize: vertical;
+    font-family: "TH Sarabun New", "Sarabun", sans-serif;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+/* Placeholder */
+.modal-form-body input::placeholder,
+.modal-form-body textarea::placeholder,
+.agenda-detail::placeholder {
+    font-size: 18px;
+    color: #94a3b8;
+    opacity: 1;
+}
+
+/* ปุ่มทั้งหมดใน Modal */
+.modal-actions button,
+.btn-add-agenda {
+    min-height: 50px;
+    padding: 12px 28px;
+    font-size: 18px;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+/* ปุ่มลบวาระ */
+.btn-remove-agenda svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* ข้อความช่วยเหลือ */
+.invitation-help {
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+.agenda-voting-control {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    min-height: 56px;
+    margin-top: 12px;
+    padding: 10px 12px;
+    border: 1px solid #dbeafe;
+    border-radius: 10px;
+    background: #eff6ff;
+}
+
+.agenda-voting-status { display: flex; align-items: center; gap: 9px; min-width: 0; }
+.agenda-voting-status-icon { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 8px; color: #2563eb; background: #dbeafe; flex: 0 0 auto; }
+.agenda-voting-status-icon svg { width: 16px; height: 16px; }
+.agenda-voting-status small, .agenda-voting-status strong { display: block; }
+.agenda-voting-status small { color: #64748b; font-size: 11px; line-height: 1.2; }
+.agenda-voting-status strong { margin-top: 2px; color: #1e3a8a; font-size: 14px; }
+.agenda-voting-control button { display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 36px; padding: 8px 12px; border-radius: 8px; font: inherit; font-size: 13px; font-weight: 700; cursor: pointer; transition: transform .15s ease, box-shadow .15s ease, opacity .15s ease; }
+.agenda-voting-control button svg { width: 15px; height: 15px; }
+.agenda-voting-control button:hover:not(:disabled) { transform: translateY(-1px); box-shadow: 0 4px 10px rgba(15, 23, 42, .1); }
+.agenda-voting-control button:disabled { cursor: wait; opacity: .6; }
+.btn-agenda-vote-open { color: #1d4ed8; background: #fff; border: 1px solid #93c5fd; }
+.btn-agenda-vote-close { color: #b91c1c; background: #fff; border: 1px solid #fca5a5; }
+.agenda-voting-control[data-agenda-status="voting"] { border-color: #a7f3d0; background: #ecfdf5; }
+.agenda-voting-control[data-agenda-status="voting"] .agenda-voting-status-icon { color: #047857; background: #d1fae5; }
+.agenda-voting-control[data-agenda-status="voting"] .agenda-voting-status strong { color: #065f46; }
+.agenda-voting-control[data-agenda-status="closed"] { border-color: #cbd5e1; background: #f8fafc; }
+.agenda-voting-control[data-agenda-status="closed"] .agenda-voting-status-icon { color: #64748b; background: #e2e8f0; }
+.agenda-voting-control[data-agenda-status="closed"] .agenda-voting-status strong { color: #475569; }
+
+@media (max-width: 600px) {
+    .agenda-voting-control { align-items: stretch; flex-direction: column; }
+    .agenda-voting-control button { width: 100%; }
+}
+
+/* Focus สำหรับผู้สูงอายุ */
+.modal-form-body input:focus,
+.modal-form-body select:focus,
+.modal-form-body textarea:focus {
+    border-color: #2563eb;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+
+.modal-form-body textarea,
+.agenda-detail {
+    font-size: 25px;
+    line-height: 1.9;
+    letter-spacing: 0.3px;
+    color: #111827;
+    font-family: "TH Sarabun New", "Sarabun", sans-serif;
+}
+
+.modal-form-body textarea::placeholder,
+.agenda-detail::placeholder {
+    font-size: 25px !important;
+    color: #94a3b8;
+    opacity: 1;
+    font-family: "TH Sarabun New", "Sarabun", sans-serif;
+}
+
+
+/* =========================================
+   Action Buttons - Elderly Friendly
+   ========================================= */
+
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+
+/* ปุ่ม */
+.action-buttons button {
+
+    width: 80px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 18px;
+
+    font-family: "TH Sarabun New", "Sarabun", sans-serif;
+
+    font-weight: 700;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    transition: .2s ease;
+
+}
+
+
+/* แก้ไข */
+.btn-edit {
+
+    background-color: #2563eb !important;
+
+    color: #ffffff !important;
+
+    border: 1px solid #1d4ed8 !important;
+
+}
+
+
+/* ลบ */
+.btn-delete {
+
+    background-color: #dc2626 !important;
+
+    color: #ffffff !important;
+
+    border: 1px solid #b91c1c !important;
+
+}
+
+
+/* Hover */
+.btn-edit:hover {
+    background-color: #1d4ed8 !important;
+}
+
+.btn-delete:hover {
+    background-color: #b91c1c !important;
+}
+
+
+/* กดปุ่ม */
+.action-buttons button:active {
+    transform: scale(.96);
+}
+
+
+/* =========================================
+   Table Action Buttons - Elderly Friendly
+   เชิญสมาชิก / บันทึกรายงาน
+   ========================================= */
+
+.btn-table-invite,
+.btn-table-report {
+
+    height: 40px;
+
+    min-width: 130px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 8px 14px;
+
+    font-size: 18px;
+
+    font-family: "TH Sarabun New", "Sarabun", sans-serif;
+
+    font-weight: 700;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    transition: .2s ease;
+
+}
+
+
+/* icon */
+.btn-table-invite svg,
+.btn-table-report svg {
+
+    width: 18px;
+
+    height: 18px;
+
+}
+
+
+/* ปุ่มเชิญสมาชิก */
+.btn-table-invite {
+
+    background-color: #2563eb;
+
+    color: #ffffff;
+
+    border: 1px solid #1d4ed8;
+
+}
+
+
+.btn-table-invite:hover {
+
+    background-color: #1d4ed8;
+     color: #ffffff;
+
+}
+
+
+/* ปุ่มบันทึกรายงาน */
+.btn-table-report {
+
+    background-color: #16a34a;
+
+    color: #ffffff;
+
+    border: 1px solid #15803d;
+
+}
+
+
+.btn-table-report:hover {
+
+    background-color: #15803d;
+
+}
+
+
+/* กดปุ่ม */
+.btn-table-invite:active,
+.btn-table-report:active {
+
+    transform: scale(.96);
+
+}
+
+
+/* =========================================
+   Invitation Modal - Elderly Friendly
+   ========================================= */
+
+
+/* ขนาด Modal เชิญสมาชิก */
+#invitationModal .modal-box {
+
+    max-width: 950px !important;
+
+}
+
+
+/* หัวข้อ */
+#invitationModal .modal-box h3 {
+
+    font-size: 26px;
+
+    padding: 24px 30px;
+
+    font-weight: 700;
+
+}
+
+
+/* เนื้อหา */
+#invitationModal .modal-form-body {
+
+    padding: 30px;
+
+}
+
+
+/* กล่องคำอธิบาย */
+#invitationModal .invitation-help {
+
+    font-size: 18px;
+
+    line-height: 1.8;
+
+    padding: 18px 20px;
+
+    border-radius: 12px;
+
+    margin-bottom: 20px;
+
+}
+
+
+/* หัวข้อรายชื่อ */
+#invitationModal .invitee-panel-header strong {
+
+    font-size: 22px !important;
+
+}
+
+
+/* ช่องค้นหา */
+#invitationModal #managerInviteeSearch {
+
+    height: 48px;
+
+    min-width: 330px;
+
+    padding: 10px 16px;
+
+    font-size: 18px;
+
+    border-radius: 10px;
+
+}
+
+
+/* Placeholder ค้นหา */
+#invitationModal #managerInviteeSearch::placeholder {
+
+    font-size: 17px;
+
+}
+
+
+/* เลือกทั้งหมด */
+#invitationModal .invitee-select-all {
+
+    font-size: 18px;
+
+    font-weight: 600;
+
+    gap: 10px;
+
+}
+
+
+/* checkbox */
+#invitationModal .invitee-select-all input {
+
+    width: 22px;
+
+    height: 22px;
+
+}
+
+
+
+/* รายชื่อสมาชิก */
+#invitationModal .invitee-list {
+
+    max-height: 420px;
+
+}
+
+
+/* รายการแต่ละคน */
+#invitationModal .invitee-item {
+
+    min-height: 65px;
+
+    padding: 12px 16px;
+
+}
+
+
+/* ชื่อ */
+#invitationModal .invitee-item strong {
+
+    font-size: 19px;
+
+}
+
+
+/* รายละเอียด */
+#invitationModal .invitee-item small {
+
+    font-size: 16px;
+
+}
+
+
+/* จำนวนสมาชิกที่เลือก */
+#invitationModal .invitation-summary {
+
+    margin-top: 18px;
+
+    padding: 16px 18px;
+
+    font-size: 18px;
+
+}
+
+
+#invitationModal .invitation-summary strong {
+
+    font-size: 22px;
+
+}
+
+
+/* ปุ่มล่าง */
+#invitationModal .modal-actions button {
+
+    min-width: 180px;
+
+    height: 52px;
+
+    font-size: 20px;
+
+    font-weight: 700;
+
+    border-radius: 10px;
+
+}
+
+
+/* ปุ่มบันทึก */
+#invitationModal .modal-actions button:first-child {
+
+    background: #2563eb;
+
+    color: white;
+
+}
+
+
+/* ปุ่มปิด */
+#invitationModal .modal-actions button:last-child {
+
+    background: #64748b;
+
+    color: white;
+
+}
+
+/* =========================================
+   Invitation Modal Scroll Fix
+   ========================================= */
+
+
+/* ให้ Modal ไม่ล้นหน้าจอ */
+#invitationModal .modal-box {
+
+    max-height: 90vh;
+
+    overflow: hidden;
+
+}
+
+
+/* ส่วนเนื้อหาให้เลื่อนได้ */
+#invitationModal .modal-form-body {
+
+    overflow-y: auto;
+
+    max-height: calc(90vh - 160px);
+
+}
+
+
+/* กล่องรายชื่อสมาชิก */
+#invitationModal .invitee-panel {
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+
+/* รายชื่อสมาชิกเลื่อน */
+#invitationModal .invitee-list {
+
+    max-height: 400px;
+
+    overflow-y: auto;
+
+    overflow-x: hidden;
+
+    padding-right: 8px;
+
+}
+
+
+/* แต่ง Scrollbar */
+#invitationModal .invitee-list::-webkit-scrollbar {
+
+    width: 8px;
+
+}
+
+
+#invitationModal .invitee-list::-webkit-scrollbar-track {
+
+    background: #f1f5f9;
+
+    border-radius: 10px;
+
+}
+
+
+#invitationModal .invitee-list::-webkit-scrollbar-thumb {
+
+    background: #94a3b8;
+
+    border-radius: 10px;
+
+}
+
+
+#invitationModal .invitee-list::-webkit-scrollbar-thumb:hover {
+
+    background: #64748b;
+
+}
+
+
+/* ปุ่มล่างให้ติดอยู่ด้านล่าง */
+#invitationModal .modal-actions {
+
+    flex-shrink: 0;
+
+}
+
+
+/* =====================================================
+   Attendance Modal - Final Fix
+   Same Style as Invitation Modal
+   ===================================================== */
+
+
+/* =========================
+   Modal
+   ========================= */
+
+.attendance-modal-box {
+
+    max-width: 950px !important;
+
+    max-height: 90vh;
+
+}
+
+
+/* =========================
+   Header
+   ========================= */
+
+.attendance-modal-box h3 {
+
+    font-size: 26px;
+
+    font-weight: 700;
+
+    padding: 24px 30px;
+
+    color: #1e293b;
+
+}
+
+
+
+/* =========================
+   Body
+   ========================= */
+
+.attendance-modal-box .modal-form-body {
+
+    padding: 30px;
+
+    overflow-y: auto;
+
+}
+
+
+
+/* =========================
+   Meeting Info
+   ========================= */
+
+.attendance-meeting-info {
+
+    padding: 16px 18px;
+
+    background: #eff6ff;
+
+    border: 1px solid #bfdbfe;
+
+    border-radius: 12px;
+
+    margin-bottom: 16px;
+
+    color: #1e3a8a;
+
+    font-size: 18px;
+
+    line-height: 1.8;
+
+}
+
+
+
+/* =========================
+   Summary
+   ========================= */
+
+.attendance-summary {
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 12px;
+
+    margin-bottom: 16px;
+
+}
+
+
+.attendance-summary>div {
+
+    padding: 16px;
+
+    border-radius: 12px;
+
+    text-align: center;
+
+}
+
+
+.attendance-summary strong {
+
+    display: block;
+
+    font-size: 26px;
+
+}
+
+
+
+/* =========================
+   Table
+   ========================= */
+
+.attendance-table-wrapper {
+
+    max-height: 420px;
+
+    overflow: auto;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 12px;
+
+}
+
+
+
+.attendance-table {
+
+    width: 100%;
+
+    min-width: 950px;
+
+    border-collapse: collapse;
+
+}
+
+
+
+.attendance-table th {
+
+    background: #f8fafc;
+
+    color: #1e293b;
+
+    font-size: 17px;
+
+    font-weight: 700;
+
+    padding: 14px;
+
+    white-space: nowrap;
+
+}
+
+
+
+.attendance-table td {
+
+    font-size: 17px;
+
+    padding: 14px;
+
+    color: #334155;
+
+    vertical-align: middle;
+
+}
+
+
+
+/* ชื่อ */
+
+.attendance-table td strong {
+
+    font-size: 18px;
+
+    color: #1e293b;
+
+}
+
+
+.attendance-table small {
+
+    display: block;
+
+    font-size: 15px;
+
+    color: #64748b;
+
+}
+
+
+
+/* =========================
+   Checkbox Fix
+   ========================= */
+
+
+.attendance-check {
+
+    width: 50px;
+
+    text-align: center;
+
+}
+
+
+
+.attendance-include[type="checkbox"] {
+
+    appearance: auto !important;
+
+    -webkit-appearance: checkbox !important;
+
+
+    width: 18px !important;
+
+    height: 18px !important;
+
+
+    min-width: 18px !important;
+
+    min-height: 18px !important;
+
+
+    padding: 0 !important;
+
+    margin: 0 auto !important;
+
+
+    cursor: pointer;
+
+
+    accent-color: #2563eb;
+
+}
+
+
+
+/* =========================
+   Select + Input
+   ========================= */
+
+
+.attendance-table select,
+.attendance-table input[type="text"] {
+
+    width: 100%;
+
+    height: 40px;
+
+    padding: 8px 10px;
+
+    font-size: 16px;
+
+    border-radius: 8px;
+
+    border: 1px solid #cbd5e1;
+
+    box-sizing: border-box;
+
+}
+
+
+
+.attendance-table input::placeholder {
+
+    font-size: 15px;
+
+    color: #94a3b8;
+
+}
+
+
+
+/* =========================
+   Representative
+   ========================= */
+
+.representative-fields {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 6px;
+
+}
+
+
+
+/* =========================
+   Footer Buttons
+   ========================= */
+
+
+.attendance-modal-box .modal-actions {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 18px 24px;
+
+}
+
+
+
+.attendance-modal-box .modal-actions button {
+
+    min-width: 180px;
+
+    height: 50px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 19px;
+
+    font-weight: 700;
+
+    border-radius: 10px;
+
+}
+
+
+
+/* บันทึก */
+
+.attendance-modal-box .modal-actions button:first-child {
+
+    background: #2563eb;
+
+    color: white;
+
+    border: 1px solid #1d4ed8;
+
+}
+
+
+
+/* พิมพ์ */
+
+.attendance-modal-box .modal-actions button:nth-child(2) {
+
+    background: #ea580c !important;
+
+    color: white !important;
+
+    border: 1px solid #c2410c !important;
+
+}
+
+
+
+/* ปิด */
+
+.attendance-modal-box .modal-actions button:last-child {
+
+    background: #64748b;
+
+    color: white;
+
+    border: 1px solid #475569;
+
+}
+
+
+
+/* =========================
+   Scrollbar
+   ========================= */
+
+.attendance-table-wrapper::-webkit-scrollbar {
+
+    width: 8px;
+
+    height: 8px;
+
+}
+
+
+.attendance-table-wrapper::-webkit-scrollbar-thumb {
+
+    background: #94a3b8;
+
+    border-radius: 10px;
+
+}
+
+
+
+/* =========================================
+   Add Meeting Button + Icon
+   ========================================= */
+
+.btn-add {
+
+    height: 40px;
+
+    min-width: 140px;
+
+    padding: 8px 18px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 7px;
+
+
+    background: #2563eb;
+
+    color: #ffffff;
+
+
+    border: 1px solid #1d4ed8;
+
+    border-radius: 8px;
+
+
+    font-size: 18px;
+
+    font-weight: 700;
+
+    font-family: "TH Sarabun New", "Sarabun", sans-serif;
+
+
+    cursor: pointer;
+
+    transition: .2s ease;
+
+}
+
+
+/* Icon */
+
+.btn-add svg {
+
+    width: 20px;
+
+    height: 20px;
+
+    stroke-width: 2.5;
+
+}
+
+
+/* Hover */
+
+.btn-add:hover {
+
+    background: #1d4ed8;
+
+}
+
+
+/* Click */
+
+.btn-add:active {
+
+    transform: scale(.96);
+
+}
+
+/* =====================================================
+   CLEAN VERSION NOTES
+   - Removed duplicate global modal overrides
+   - Kept Invitation Modal and Attendance Modal specific styles
+   - Prevented checkbox/input conflicts
+   - Preserved existing theme and layout
+   ===================================================== */

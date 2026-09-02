@@ -1,0 +1,27 @@
+# ==========================================================
+# SECURE UPLOADS CONFIGURATION
+# ==========================================================
+
+# ป้องกันการเปิด Directory
+Options -Indexes
+
+# บล็อกไฟล์สำคัญ
+<FilesMatch "\.(php|php3|php4|php5|phtml|phar)$">
+    Deny from all
+</FilesMatch>
+
+
+# อนุญาตไฟล์เอกสารสำหรับระบบ Login
+<FilesMatch "\.(pdf|doc|docx|xls|xlsx|ppt|pptx)$">
+    Allow from all
+</FilesMatch>
+
+
+# อนุญาตรูปภาพ
+<FilesMatch "\.(jpg|jpeg|png|webp|gif)$">
+    Allow from all
+</FilesMatch>
+
+
+# หน้า Error
+ErrorDocument 403 /Meeting_msu/public/uploads/error_403.php
