@@ -482,7 +482,7 @@ echo $alertScript;
             try {
 
                 const response = await fetch(
-                    '//api/login.php/login.php', {
+                    '/Meeting_msu/api/login.php', {
                         method: 'POST',
 
                         headers: {

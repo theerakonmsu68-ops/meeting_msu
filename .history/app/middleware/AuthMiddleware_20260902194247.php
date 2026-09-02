@@ -30,7 +30,7 @@ class AuthMiddleware
 
         if (empty($_SESSION['user_id']) || empty($_SESSION['role_id'])) {
             $_SESSION['redirect_url'] = $_SERVER['REQUEST_URI'] ?? '';
-            header("Location:/public/auth/login.php");
+            header('Location: /Meeting_msu/public/auth/login.php');
             exit;
         }
     }
