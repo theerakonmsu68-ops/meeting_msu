@@ -33,5 +33,5 @@ if (isset($_SESSION['user_id']) && isset($_SESSION['role_id'])) {
 }
 
 // 🔒 ถ้ายังไม่ได้เข้าสู่ระบบ (ไม่มี Session ค้างไว้) ให้ส่งไปหน้า Login ตามปกติ
-header("Location: /auth/login.php");
+header("Location: public/auth/login.php");
 exit;
