@@ -42,7 +42,7 @@ function viewAgenda(id) {
         });
 
     // ดึงข้อมูลวาระมาแสดงผลปกติ
-    fetch("/Meeting_msu/app/controllers/get_agenda.php?id=" + id)
+    fetch("/app/controllers/get_agenda.php?id=" + id)
         .then(r => r.json())
         .then(data => {
             let html = "";

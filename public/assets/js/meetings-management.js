@@ -234,7 +234,7 @@ function addAgenda(title = "", detail = "", agendaId = null, documents = [], age
     const existingDocuments = Array.isArray(documents)
         ? documents.map(doc => `
             <div class="agenda-existing-doc" data-document-id="${Number(doc.agenda_document_id)}">
-                <a href="/Meeting_msu/app/controllers/download.php?file=${encodeURIComponent(doc.file_path)}" target="_blank" title="${escapeAttribute(doc.document_name)}">
+                <a href="/app/controllers/download.php?file=${encodeURIComponent(doc.file_path)}" target="_blank" title="${escapeAttribute(doc.document_name)}">
                     📄 ${escapeHtml(doc.document_name)}
                 </a>
                 <button type="button" class="btn-remove-existing-doc" onclick="markAgendaDocumentForDeletion(this, ${Number(doc.agenda_document_id)})" title="ลบไฟล์นี้">
@@ -839,7 +839,7 @@ function viewAgenda(id) {
                         <div class="agenda-card-documents">
                             <strong style="font-size:12px;color:#475569;">เอกสารแนบ</strong>
                             ${agenda.documents.map(doc => `
-                                <a href="/Meeting_msu/app/controllers/download.php?file=${encodeURIComponent(doc.file_path)}" target="_blank">
+                                <a href="/app/controllers/download.php?file=${encodeURIComponent(doc.file_path)}" target="_blank">
                                     📄 ${escapeHtml(doc.document_name)}
                                 </a>
                             `).join('')}

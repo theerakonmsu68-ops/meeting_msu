@@ -1,9 +1,9 @@
 <?php
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/Meeting_msu/app/middleware/AuthMiddleware.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/app/middleware/AuthMiddleware.php';
 AuthMiddleware::allow([1, 2, 3, 4]);
 
-require_once $_SERVER['DOCUMENT_ROOT'].'/Meeting_msu/app/config/database.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/app/config/database.php';
 
 header('Content-Type: application/json');
 

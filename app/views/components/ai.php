@@ -289,7 +289,7 @@ function handleKeyPress(e) {
 function clearChat() {
     if (confirm('คุณต้องการล้างประวัติการสนทนานี้ใช่หรือไม่?')) {
         const chatBody = document.getElementById('chatBody');
-        const clearUrl = window.location.origin + '/Meeting_msu/app/controllers/ChatAiController.php?clear=1';
+        const clearUrl = window.location.origin + '/app/controllers/ChatAiController.php?clear=1';
         fetch(clearUrl)
             .then(res => res.json())
             .then(data => {
@@ -320,7 +320,7 @@ function sendMessage() {
     input.value = '';
     chatBody.scrollTop = chatBody.scrollHeight;
 
-    const targetUrl = window.location.origin + '/Meeting_msu/app/controllers/ChatAiController.php';
+    const targetUrl = window.location.origin + '/app/controllers/ChatAiController.php';
 
     fetch(targetUrl, {
             method: 'POST',

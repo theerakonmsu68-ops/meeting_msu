@@ -517,26 +517,26 @@ echo $alertScript;
 
                                 case 1:
                                     window.location.href =
-                                        '/Meeting_msu/public/admin/index.php';
+                                        '/public/admin/index.php';
                                     break;
 
 
                                 case 3:
                                     window.location.href =
-                                        '/Meeting_msu/public/executives/index.php';
+                                        '/public/executives/index.php';
                                     break;
 
 
                                 case 4:
                                     window.location.href =
-                                        '/Meeting_msu/public/departments/index.php';
+                                        '/public/departments/index.php';
                                     break;
 
 
                                 case 2:
                                 default:
                                     window.location.href =
-                                        '/Meeting_msu/public/users/index.php';
+                                        '/public/users/index.php';
                                     break;
                             }
 

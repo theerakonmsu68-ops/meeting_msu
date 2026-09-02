@@ -4,14 +4,14 @@
  * Requires migrations from meeting_upgrade_report_invitation_v3
  * ============================================================ */
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/Meeting_msu/app/middleware/AuthMiddleware.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/app/middleware/AuthMiddleware.php';
 AuthMiddleware::allow(3);
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/Meeting_msu/app/bootstrap.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/Meeting_msu/app/config/database.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/Meeting_msu/app/helpers/url_helper.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/Meeting_msu/app/helpers/view_helper.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/Meeting_msu/app/helpers/status_helper.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/app/bootstrap.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/app/config/database.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/app/helpers/url_helper.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/app/helpers/view_helper.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/app/helpers/status_helper.php';
 
 $db = (new Database())->connect();
 $userId = (int) ($_SESSION['user_id'] ?? 0);
@@ -233,9 +233,9 @@ $page_css = "executive-dashboard.css";
 
 $page_js = ["sweetalert2.all.min.js", "dashboard-formatters.js", "meeting-dashboard.js"];
 
-include_once $_SERVER['DOCUMENT_ROOT'] . '/Meeting_msu/app/views/layouts/header.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/app/views/layouts/header.php';
 $current_page = 'dashboard';
-include_once $_SERVER['DOCUMENT_ROOT'] . '/Meeting_msu/app/views/layouts/sidebar_executive.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/app/views/layouts/sidebar_executive.php';
 ?>
 
 
@@ -538,10 +538,10 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/Meeting_msu/app/views/layouts/sidebar
 window.MeetingConfig = {
     csrfToken: <?= json_encode($departmentMeetingCsrfToken, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) ?>,
     initialOpenMeetingId: <?= (int) $openMeetingId ?>,
-    apiUrl: '/Meeting_msu/app/controllers/department_meeting_api.php'
+    apiUrl: '/app/controllers/department_meeting_api.php'
 };
 </script>
 
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'] . '/Meeting_msu/app/views/layouts/footer.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/app/views/layouts/footer.php';
 ?>

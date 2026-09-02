@@ -65,7 +65,7 @@
                 document.getElementById('user_checkin_status').innerHTML = "ไม่มีข้อมูลการเช็กชื่อ";
             });
 
-        fetch("/Meeting_msu/app/controllers/get_agenda.php?id=" + id)
+        fetch("/app/controllers/get_agenda.php?id=" + id)
             .then(r => r.json())
             .then(data => {
                 let html = "";

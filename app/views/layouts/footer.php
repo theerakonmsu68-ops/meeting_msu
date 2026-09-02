@@ -4,7 +4,7 @@
 // ==========================================================================
 // 🌐 นำค่าคงที่ BASE_URL จาก PHP มาใช้ฝั่ง JavaScript เพื่อให้ทุกหน้าใช้พาร์ทตรงกัน
 // ==========================================================================
-const BASE_URL = "<?= BASE_URL ?>"; // ผลลัพธ์จะเป็น "/Meeting_msu/public/" เสมอ
+const BASE_URL = "<?= BASE_URL ?>"; // ผลลัพธ์จะเป็น "/public/" เสมอ
 const meetingCsrfToken = document.querySelector('meta[name="csrf-token"]')?.content || '';
 const nativeFetch = window.fetch.bind(window);
 window.fetch = function (input, init = {}) {
@@ -290,9 +290,9 @@ if (form) {
 <?php if (isset($page_js) && !empty($page_js)): ?>
 
     <?php
-    $sweetAlertAssetPath = $_SERVER['DOCUMENT_ROOT'] . '/Meeting_msu/public/assets/js/sweetalert2.all.min.js';
+    $sweetAlertAssetPath = $_SERVER['DOCUMENT_ROOT'] . '/public/assets/js/sweetalert2.all.min.js';
     $sweetAlertAssetVersion = is_file($sweetAlertAssetPath) ? '?v=' . filemtime($sweetAlertAssetPath) : '';
-    $commonJsAssetPath = $_SERVER['DOCUMENT_ROOT'] . '/Meeting_msu/public/assets/js/common.js';
+    $commonJsAssetPath = $_SERVER['DOCUMENT_ROOT'] . '/public/assets/js/common.js';
     $commonJsAssetVersion = is_file($commonJsAssetPath) ? '?v=' . filemtime($commonJsAssetPath) : '';
     ?>
     <script src="<?= BASE_URL ?>assets/js/sweetalert2.all.min.js<?= $sweetAlertAssetVersion ?>"></script>
@@ -307,7 +307,7 @@ if (form) {
                 if ($js === 'sweetalert2.all.min.js') {
                     continue;
                 }
-                $pageJsAssetPath = $_SERVER['DOCUMENT_ROOT'] . '/Meeting_msu/public/assets/js/' . $js;
+                $pageJsAssetPath = $_SERVER['DOCUMENT_ROOT'] . '/public/assets/js/' . $js;
                 $pageJsAssetVersion = is_file($pageJsAssetPath) ? '?v=' . filemtime($pageJsAssetPath) : '';
                 ?>
                 <script src="<?= BASE_URL ?>assets/js/<?= htmlspecialchars($js, ENT_QUOTES, 'UTF-8') ?><?= $pageJsAssetVersion ?>"></script>
@@ -319,7 +319,7 @@ if (form) {
 
         <?php if ($page_js !== 'sweetalert2.all.min.js'): ?>
             <?php
-            $pageJsAssetPath = $_SERVER['DOCUMENT_ROOT'] . '/Meeting_msu/public/assets/js/' . $page_js;
+            $pageJsAssetPath = $_SERVER['DOCUMENT_ROOT'] . '/public/assets/js/' . $page_js;
             $pageJsAssetVersion = is_file($pageJsAssetPath) ? '?v=' . filemtime($pageJsAssetPath) : '';
             ?>
             <script src="<?= BASE_URL ?>assets/js/<?= htmlspecialchars($page_js, ENT_QUOTES, 'UTF-8') ?><?= $pageJsAssetVersion ?>"></script>

@@ -53,17 +53,17 @@ class AuthMiddleware
     {
         switch ($roleId) {
             case 1:
-                header('Location: /Meeting_msu/public/admin/index.php');
+                header('Location: /public/admin/index.php');
                 break;
             case 3:
-                header('Location: /Meeting_msu/public/executives/index.php');
+                header('Location: /public/executives/index.php');
                 break;
             case 4:
-                header('Location: /Meeting_msu/public/departments/index.php');
+                header('Location: /public/departments/index.php');
                 break;
             case 2:
             default:
-                header('Location: /Meeting_msu/public/users/index.php');
+                header('Location: /public/users/index.php');
                 break;
         }
         exit;

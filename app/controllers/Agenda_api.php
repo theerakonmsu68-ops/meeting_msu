@@ -1,13 +1,13 @@
 <?php
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/Meeting_msu/app/middleware/AuthMiddleware.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/app/middleware/AuthMiddleware.php';
 AuthMiddleware::allow(1);
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/Meeting_msu/app/bootstrap.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/Meeting_msu/app/config/database.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/app/bootstrap.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/app/config/database.php';
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/Meeting_msu/app/models/Agenda.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/Meeting_msu/app/controllers/AgendaController.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/app/models/Agenda.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/app/controllers/AgendaController.php';
 
 
 header('Content-Type: application/json; charset=utf-8');

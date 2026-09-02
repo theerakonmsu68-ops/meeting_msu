@@ -127,10 +127,10 @@ $sidebarPosition = trim((string) ($sidebarProfile['position_name'] ?? '')) ?: ''
 $sidebarDepartment = trim((string) ($sidebarProfile['department_name'] ?? '')) ?: 'ยังไม่ระบุภาควิชา';
 $sidebarRole = trim((string) ($sidebarProfile['role_name'] ?? '')) ?: 'ภาควิชา';
 
-/* BASE_URL ของโปรเจกต์นี้ชี้เข้าฝั่ง public อยู่แล้ว เช่น /Meeting_msu/public/ */
+/* BASE_URL ของโปรเจกต์นี้ชี้เข้าฝั่ง public อยู่แล้ว เช่น /public/ */
 $sidebarPublicBase = defined('BASE_URL')
     ? rtrim((string) BASE_URL, '/') . '/'
-    : '/Meeting_msu/public/';
+    : '/public/';
 
 /* สร้างรูปสำรองในเครื่อง ไม่เรียกบริการ Avatar ภายนอก */
 $sidebarInitial = function_exists('mb_substr')

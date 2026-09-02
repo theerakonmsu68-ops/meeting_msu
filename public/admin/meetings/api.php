@@ -4,7 +4,7 @@
 🔐 AUTH & SECURITY
 ======================================================= */
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/Meeting_msu/app/middleware/AuthMiddleware.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/app/middleware/AuthMiddleware.php';
 AuthMiddleware::allow(1);
 
 require_once __DIR__ . '/../../../app/bootstrap.php';

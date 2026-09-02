@@ -63,7 +63,7 @@ if (!empty($sidebar_profile['role_name'])) {
 
 $sidebar_public_base = defined('BASE_URL')
     ? rtrim((string)BASE_URL, '/') . '/'
-    : '/Meeting_msu/public/';
+    : '/public/';
 
 $sidebar_picture = trim((string)($sidebar_profile['picture'] ?? ''));
 $sidebar_avatar = '';
@@ -320,7 +320,7 @@ $sidebar_collapsed = isset($_COOKIE['meeting_sidebar_collapsed']) && $_COOKIE['m
             mainContent.classList.toggle('expanded', isCollapsed);
         }
 
-        document.cookie = 'meeting_sidebar_collapsed=' + (isCollapsed ? '1' : '0') + '; path=/Meeting_msu/; max-age=31536000; SameSite=Lax';
+        document.cookie = 'meeting_sidebar_collapsed=' + (isCollapsed ? '1' : '0') + '; path=/; max-age=31536000; SameSite=Lax';
         window.dispatchEvent(new CustomEvent('meetingSidebarToggled', { detail: { collapsed: isCollapsed } }));
     };
 

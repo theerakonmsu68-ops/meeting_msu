@@ -9,7 +9,7 @@ $adminSidebarPage = (string) ($current_page ?? 'dashboard');
 
 $adminSidebarBaseUrl = defined('BASE_URL')
     ? rtrim((string) BASE_URL, '/') . '/'
-    : '/Meeting_msu/';
+    : '/';
 
 $adminSidebarH = static fn($value): string =>
 htmlspecialchars((string) ($value ?? ''), ENT_QUOTES, 'UTF-8');
@@ -175,7 +175,7 @@ $adminSidebarAvatar = '';
 
 /*
  * BASE_URL ของโปรเจกต์นี้ชี้มายัง public/ อยู่แล้ว
- * เช่น /Meeting_msu/public/
+ * เช่น /public/
  * ดังนั้นรูป local ต้องต่อเพียง uploads/avatars/ เท่านั้น
  * ห้ามต่อ public/uploads/avatars/ ซ้ำ
  */
@@ -194,7 +194,7 @@ if ($adminSidebarPicture !== '') {
                 $adminSidebarBaseUrl
                 . 'uploads/avatars/'
                 . rawurlencode($pictureFile)
-                . '?v=' . rawurlencode((string) @filemtime($_SERVER['DOCUMENT_ROOT'] . '/Meeting_msu/public/uploads/avatars/' . $pictureFile));
+                . '?v=' . rawurlencode((string) @filemtime($_SERVER['DOCUMENT_ROOT'] . '/public/uploads/avatars/' . $pictureFile));
         }
     }
 }

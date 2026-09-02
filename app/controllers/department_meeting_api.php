@@ -1,14 +1,14 @@
 <?php
 /* ============================================================
  * API สำหรับหน้าผู้ใช้งานระดับภาควิชา
- * Path แนะนำ: /Meeting_msu/app/controllers/department_meeting_api.php
+ * Path แนะนำ: /app/controllers/department_meeting_api.php
  * ============================================================ */
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/Meeting_msu/app/middleware/AuthMiddleware.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/app/middleware/AuthMiddleware.php';
 AuthMiddleware::allow([3,4]);
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/Meeting_msu/app/bootstrap.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/Meeting_msu/app/config/database.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/app/bootstrap.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/app/config/database.php';
 
 header('Content-Type: application/json; charset=utf-8');
 header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');

@@ -108,7 +108,7 @@ async function viewAgenda(id) {
     `;
 
     try {
-        const response = await fetch(`/Meeting_msu/app/controllers/Agenda_api.php?action=detail&agenda_id=${id}`);
+        const response = await fetch(`/app/controllers/Agenda_api.php?action=detail&agenda_id=${id}`);
         const data = await response.json();
 
         if (data.status !== 'success') {
@@ -138,7 +138,7 @@ function renderAgendaDetail(agenda) {
         <div class="document-list">
         ${
             agenda.documents.map(doc => `
-            <a class="document-link" href="/Meeting_msu/app/controllers/download.php?file=${encodeURIComponent(doc.file_path)}" target="_blank">
+            <a class="document-link" href="/app/controllers/download.php?file=${encodeURIComponent(doc.file_path)}" target="_blank">
                 📄 ${escapeHtml(doc.document_name)}
             </a>
             `).join('')
@@ -192,7 +192,7 @@ async function postAgendaAction(action, id, message, confirmTitle = 'ยืน�
         const formData = new FormData();
         formData.append('agenda_id', id);
 
-        const response = await fetch(`/Meeting_msu/app/controllers/Agenda_api.php?action=${action}`, {
+        const response = await fetch(`/app/controllers/Agenda_api.php?action=${action}`, {
             method: 'POST',
             body: formData
         });

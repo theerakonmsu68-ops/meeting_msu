@@ -3,7 +3,7 @@
 🔐 API: ตรวจสอบสถานะการเข้าประชุมและบทบาทของผู้ใช้ (RSVP)
 ======================================================== */
 session_start();
-require_once $_SERVER['DOCUMENT_ROOT'] . '/Meeting_msu/app/config/database.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/app/config/database.php';
 
 // กำหนดให้ไฟล์นี้ส่งออกข้อมูลเป็นรูปแบบ JSON
 header('Content-Type: application/json');

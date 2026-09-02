@@ -24,4 +24,4 @@ Options -Indexes
 
 
 # หน้า Error
-ErrorDocument 403 /Meeting_msu/public/uploads/error_403.php
+ErrorDocument 403 /public/uploads/error_403.php

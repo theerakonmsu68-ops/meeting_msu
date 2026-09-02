@@ -4,7 +4,7 @@
 ======================================================== */
 
 // 1. เรียกใช้งาน Middleware ตรวจสอบสิทธิ์การเข้าถึงเซสชัน
-require_once $_SERVER['DOCUMENT_ROOT'] . '/Meeting_msu/app/middleware/AuthMiddleware.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/app/middleware/AuthMiddleware.php';
 
 // อนุญาตให้กลุ่มผู้ใช้งานที่มีสิทธิ์เข้าถึงระบบตัวนี้ใช้งานได้ (รวมถึง role_id = 4 ระดับภาควิชา)
 AuthMiddleware::allow([1, 2, 3, 4]);
@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !AuthMiddleware::verifyCsrf()) {
 }
 
 // 2. เรียกใช้งานไฟล์เชื่อมต่อฐานข้อมูลส่วนกลาง
-require_once $_SERVER['DOCUMENT_ROOT'] . '/Meeting_msu/app/config/database.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/app/config/database.php';
 
 // ตั้งค่าให้ผลลัพธ์พ่นกลับไปเป็นรูปแบบ JSON เสมอ
 header('Content-Type: application/json');

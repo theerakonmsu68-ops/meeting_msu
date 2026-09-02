@@ -10,7 +10,7 @@ $execSidebarPage = (string)($current_page ?? 'dashboard');
 
 $execSidebarBaseUrl = defined('BASE_URL')
     ? rtrim((string)BASE_URL, '/') . '/'
-    : '/Meeting_msu/';
+    : '/';
 
 $execH = static fn($value): string =>
 htmlspecialchars((string)($value ?? ''), ENT_QUOTES, 'UTF-8');
@@ -145,7 +145,7 @@ $execAvatar = '';
 /* BASE_URL ชี้ไป public อยู่แล้ว */
 $execPublicBase = defined('BASE_URL')
     ? rtrim((string)BASE_URL, '/') . '/'
-    : '/Meeting_msu/public/';
+    : '/public/';
 
 if ($execPicture !== '') {
     if (filter_var($execPicture, FILTER_VALIDATE_URL)) {

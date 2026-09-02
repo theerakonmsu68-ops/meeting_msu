@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         
         // ดึงข้อมูลอีเวนต์การประชุมจาก API หลังบ้านที่จัดเตรียมไว้
-        events: '/Meeting_msu/app/controllers/Get_calendar_events.php'
+        events: '/app/controllers/Get_calendar_events.php'
     });
     
     calendar.render();

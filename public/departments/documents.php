@@ -1,5 +1,5 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/Meeting_msu/app/middleware/AuthMiddleware.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/app/middleware/AuthMiddleware.php';
 AuthMiddleware::allow(4);
 require_once __DIR__ . '/../../app/bootstrap.php';
 require_once __DIR__ . '/../../app/config/database.php';
@@ -134,7 +134,7 @@ include_once __DIR__ . '/../../app/views/layouts/sidebar_department.php';
                     <p>อัปโหลด: <?= date('d/m/Y H:i', strtotime($d['upload_date'])) ?> น.</p>
                     <span class="chip"><?= $d['source_type'] === 'agenda' ? 'เอกสารวาระ' : 'เอกสารการประชุม' ?></span><br>
                     <a class="download"
-                        href="/Meeting_msu/app/controllers/download.php?file=<?= urlencode($d['file_path']) ?>"><i
+                        href="/app/controllers/download.php?file=<?= urlencode($d['file_path']) ?>"><i
                             data-lucide="download"></i>ดาวน์โหลด</a>
                 </article>
             <?php endforeach; ?>

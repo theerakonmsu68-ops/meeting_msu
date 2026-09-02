@@ -276,7 +276,7 @@ async function castVote(agendaId, voteType) {
 function documentLink(doc) {
     const path = String(doc.file_path || '');
     const name = escapeHtml(doc.document_name || 'เอกสารแนบ');
-    const href = `/Meeting_msu/app/controllers/download.php?file=${encodeURIComponent(path)}`;
+    const href = `/app/controllers/download.php?file=${encodeURIComponent(path)}`;
     return `<a class="document-link" href="${href}" target="_blank" rel="noopener"><span><i data-lucide="file-text"></i><b>${name}</b></span><i data-lucide="download"></i></a>`;
 }
 

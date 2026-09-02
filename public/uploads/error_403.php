@@ -118,7 +118,7 @@
         <h1 class="error-title">พื้นที่จัดเก็บเอกสารส่วนบุคคล</h1>
         <p class="error-message">ระบบได้จำกัดการเข้าถึงโฟลเดอร์นี้โดยตรง เพื่อความปลอดภัยของข้อมูลวาระการประชุมคณะ ไม่อนุญาตให้เข้าถึงผ่าน URL สาธารณะ</p>
         
-        <a href="/Meeting_msu/public/users/meeting_history.php" class="btn-home">
+        <a href="/public/users/meeting_history.php" class="btn-home">
             <i data-lucide="home" style="width: 16px; height: 16px;"></i>
             <span>กลับสู่หน้าหลักของระบบ</span>
         </a>
